@@ -12,6 +12,11 @@ const config: Config = {
         primary: 'rgb(var(--primary))', // BLACK
         secondary: 'rgb(var(--secondary))', // PURPLE
         neutral: 'rgb(var(--neutral))', // WHITE
+      },
+      fontFamily: {
+        roboto: ['var(--font-roboto)'],
+        poppins: ['var(--font-poppins)'],
+        firaSans: ['var(font-fira-sans)'],
       }
     },
   },
