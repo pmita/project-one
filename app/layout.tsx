@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { roboto, poppins } from "@/config/fonts";
 import "./globals.css";
+import { cn } from "@/utils/helpers";
 
 export const metadata: Metadata = {
   title: "Help next door",
@@ -14,7 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${poppins.variable}`}>{children}</body>
+      <body 
+        className={cn(
+          "min-h-screen bg-neutral font-roboto antialiased",
+          roboto.variable,
+          poppins.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
