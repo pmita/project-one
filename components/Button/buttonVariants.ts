@@ -1,21 +1,21 @@
 // PACKAGES
 import { cva } from "class-variance-authority";
 // STYLES
-import style from './style.module.css';
+import styles from './styles.module.css';
 
 export const buttonVariants = cva(
-  `${style.button}`, {
+  `${styles.button}`, {
     variants: {
       variant: {
-        primary: `${style.primary}`,
-        primaryOutlined: `${style.primaryOutlined}`,
-        secondary: `${style.secondary}`,
-        secondaryOutlined: `${style.secondaryOutlined}`,
+        primary: `${styles.primary}`,
+        primaryOutlined: `${styles.primaryOutlined}`,
+        secondary: `${styles.secondary}`,
+        secondaryOutlined: `${styles.secondaryOutlined}`,
       },
       size: {
-        default: `${style.default}`,
-        sm: `${style.small}`,
-        lg: `${style.large}`
+        default: `${styles.default}`,
+        sm: `${styles.small}`,
+        lg: `${styles.large}`
       }
     },
     defaultVariants: {

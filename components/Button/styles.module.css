@@ -7,7 +7,7 @@
     border-solid
     rounded-[6px] 
     font-medium 
-    font-poppins 
+    font-poppins;
 }
 
 .button:disabled {
