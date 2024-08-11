@@ -1,0 +1,74 @@
+.button {
+  @apply 
+    inline-flex 
+    items-center 
+    justify-center 
+    border-[0.3rem] 
+    border-solid
+    rounded-[6px] 
+    font-medium 
+    font-poppins;
+}
+
+.button:disabled {
+  @apply 
+  cursor-not-allowed
+  opacity-50 
+}
+
+.primary {
+  @apply 
+    bg-primary 
+    border-primary
+    text-neutral 
+    hover:bg-neutral 
+    hover:text-primary
+}
+
+.primaryOutlined {
+  @apply 
+    bg-neutral 
+    text-primary 
+    border-primary 
+    hover:bg-primary 
+    hover:text-neutral
+}
+
+.secondary {
+  @apply 
+    bg-secondary 
+    text-neutral 
+    border-secondary 
+    hover:bg-neutral 
+    hover:text-secondary
+}
+
+.secondaryOutlined {
+  @apply 
+    bg-neutral 
+    text-secondary 
+    border-secondary 
+    hover:bg-secondary 
+    hover:text-neutral
+}
+
+/* Sizes */
+
+.default {
+  @apply 
+  py-[0.5rem] 
+  px-[1rem]
+}
+
+.small {
+  @apply 
+    py-[0.25rem] 
+    px-[0.75rem]
+}
+
+.large {
+  @apply 
+    py-[0.75rem] 
+    px-[1.25rem]
+}
+

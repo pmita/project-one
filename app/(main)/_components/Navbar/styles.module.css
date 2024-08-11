@@ -1,0 +1,29 @@
+.navbar {
+  @apply bg-secondary 
+    min-h-[10dvh] 
+    flex 
+    justify-between 
+    items-center
+    p-4
+    lg:p-8
+}
+
+.brand {
+  @apply text-2xl 
+    border-neutral
+    font-poppins
+    text-neutral 
+    font-bold
+}
+
+.link {
+  @apply text-neutral
+    border-solid
+    border-[3px]
+    p-2
+    opacity-90
+    font-roboto
+    font-medium
+    hover:opacity-50
+    transition-colors
+}
