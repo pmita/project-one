@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 
 export const LandingBanner = async () => {
   return (
-    <section className={`container ${styles.section}`}>
+    <section className={`${styles.section}`}>
       <div className={`${styles.content}`}>
           <h1 className={`${styles.header}`}>We paint. We fix. We build.</h1>
 

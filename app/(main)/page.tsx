@@ -1,10 +1,12 @@
-// import LandingBanner from "./_components/landing-banner";
+// COMPONENTS
 import { LandingBanner } from "./_components/LandingBanner";
+import { Features } from "./_components/Features";
 
 export default function HomePage() {
   return (
-    <main className="grid items-center">
+    <main className="container grid items-center">
       <LandingBanner />
+      <Features />
     </main>
   );
 }
