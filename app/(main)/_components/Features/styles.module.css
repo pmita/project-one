@@ -38,17 +38,17 @@
     border-solid
     border-[3px]
     rounded-[8px]
-    border-primary;
+    border-primary
 }
 
-.vertical {
+.feature:first-child {
   @apply col-span-1
-  lg:row-span-2
+  lg:row-span-2;
 }
 
-.horizontal {
+.feature:last-child {
   @apply col-span-1
-  lg:col-span-2
+  lg:col-span-2;
 }
 
 .title {
