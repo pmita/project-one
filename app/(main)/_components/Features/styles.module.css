@@ -1,5 +1,21 @@
+.header {
+  @apply text-5xl 
+    mb-12
+    font-poppins 
+    font-extrabold 
+    text-secondary 
+    sm:text-7xl
+    text-center
+}
+
+.subheader {
+  @apply mt-4 
+    font-roboto 
+    text-xl
+}
+
 .section {
-  @apply min-h-[100dvh]
+  @apply 
     m-8
     grid
     grid-cols-1
