@@ -1,0 +1,21 @@
+.field {
+  @apply w-full 
+    flex 
+    flex-col 
+    justify-center i
+    tems-start 
+    gap-5;
+}
+
+.input {
+  @apply w-full 
+    border-solid 
+    border-[0.3rem] 
+    border-primary 
+    p-4 
+    rounded-[6px];
+}
+
+.danger {
+  @apply text-danger;
+}
