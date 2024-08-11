@@ -22,7 +22,7 @@ export const LandingBanner = async () => {
             <Link
               href="/contact"
               className={cn(buttonVariants({
-                variant: "primary",
+                variant: "secondary",
                 size: "lg",
               }))}
             >
@@ -31,7 +31,7 @@ export const LandingBanner = async () => {
             <Link
               href="/services"
               className={cn(buttonVariants({
-                variant: "primaryOutlined",
+                variant: "secondaryOutlined",
                 size: "lg",
               }))}
             >

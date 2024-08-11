@@ -3,9 +3,9 @@ import styles from './styles.module.css'
 
 export const Features = async () => {
   return (
-    <>
+    <section className={`${styles.featuresSection}`}>
       <h1 className={`${styles.header}`}>What we offer?</h1>
-      <section className={`${styles.section}`}>
+      <div className={`${styles.features}`}>
         <div className={`${styles.feature} ${styles.vertical}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export const Features = async () => {
           <p className={`${styles.title}`}>Miscelleneous</p>
           <p className={`${styles.description}`}>Enhance your outdoor spaces with our versatile services. From sturdy brickwork to impeccably landscaped gardens, we offer comprehensive solutions tailored to your needs. Whether it's reviving your driveway, creating an oasis of greenery, or securing your property with durable fencing, our expertise ensures impeccable results that stand the test of time.</p>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

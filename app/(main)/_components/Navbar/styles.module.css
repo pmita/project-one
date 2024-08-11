@@ -10,10 +10,7 @@
 
 .brand {
   @apply text-2xl 
-    border-solid
-    border-[3px]
     border-neutral
-    p-2
     font-poppins
     text-neutral 
     font-bold
@@ -21,6 +18,9 @@
 
 .link {
   @apply text-neutral
+    border-solid
+    border-[3px]
+    p-2
     opacity-90
     font-roboto
     font-medium

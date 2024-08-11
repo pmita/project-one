@@ -1,3 +1,11 @@
+.featuresSection {
+  @apply min-h-[100dvh]
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
 .header {
   @apply text-5xl 
     mb-12
@@ -8,19 +16,13 @@
     text-center
 }
 
-.subheader {
-  @apply mt-4 
-    font-roboto 
-    text-xl
-}
-
-.section {
+.features {
   @apply 
     m-8
     grid
     grid-cols-1
     lg:grid-cols-[repeat(3,1fr)] 
-    grid-rows-[repeat(3,320px)]
+    grid-rows-[repeat(2,320px)]
     gap-4;
 }
 
