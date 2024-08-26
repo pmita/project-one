@@ -23,7 +23,7 @@ export const ContactForm = () => {
   // STATE & HOOKS
   const { isLoading, hasQueryBeenSent, addDocument } = useDB();
   const { register, handleSubmit, reset, formState: { errors }} = useForm<IContactForm>({
-    mode: 'onBlur',
+    mode: 'onSubmit',
     reValidateMode: 'onChange',
     defaultValues: {
       fullName: '',
