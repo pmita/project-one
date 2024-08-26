@@ -1,11 +1,14 @@
 "use client"
 
+// REACT
+import { useState, useCallback } from "react";
 // COMPONENTS
 import { FormField } from "@/components/FormField";
 import { Button, buttonVariants } from "@/components/Button";
-// HOOKS
 // PACKAGES
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+// HOOKS
+import { useDB } from "@/hooks/useDB";
 // CONFIG
 import { contactFormConfig } from "./config";
 // UTILS
@@ -18,7 +21,8 @@ import styles from "./styles.module.css";
 
 export const ContactForm = () => {
   // STATE & HOOKS
-  const { register, formState: { errors }} = useForm<IContactForm>({
+  const { isLoading, hasQueryBeenSent, addDocument } = useDB();
+  const { register, handleSubmit, reset, formState: { errors }} = useForm<IContactForm>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -29,8 +33,22 @@ export const ContactForm = () => {
     }
   })
 
+  // EVENT HANDLERS
+  const onSubmit: SubmitHandler<IContactForm> = useCallback(async ({ fullName, email, mobile, additionalInfo }) => {
+    await addDocument(
+      'queries', {
+        fullName,
+        email,
+        mobile,
+        additionalInfo
+      }
+    )
+
+    reset();
+  }, [isLoading, hasQueryBeenSent]);
+
   return (
-    <form className={`${styles.contactForm}`}>
+    <form onSubmit={handleSubmit(onSubmit)} className={`${styles.contactForm}`}>
       <h1 className={`${styles.header}`}>Get in touch!</h1>
       {contactFormConfig && contactFormConfig.map((input) => (
         <FormField
@@ -45,9 +63,11 @@ export const ContactForm = () => {
         />
       ))}
 
-      <Button type="submit" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-        Submit
+      <Button type="submit" disabled={isLoading} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
+        {isLoading ? 'Loading...' : 'Submit'}
       </Button>
+
+      {hasQueryBeenSent && <p className={`${styles.promptText}`}>Query has been sent!</p>}
     </form>
   )
 }

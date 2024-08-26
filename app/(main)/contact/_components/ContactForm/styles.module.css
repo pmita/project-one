@@ -14,7 +14,7 @@
     font-poppins;
 }
 
-.text {
+.promptText {
   @apply text-lg 
     text-center 
     font-poppins 
