@@ -16,7 +16,8 @@ if (!firebase.apps.length) {
 }
 
 // FIRESTORE
-const firestore = firebase.firestore();
+const db = firebase.firestore();
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 // EXPORTS
-export { firestore };
+export { db, timestamp };
