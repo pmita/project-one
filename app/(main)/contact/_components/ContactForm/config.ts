@@ -4,6 +4,7 @@ export const contactFormConfig = [
     name: 'fullName',
     type: 'text',
     placeholder: 'Full Name',
+    componentType: 'input',
     validationSchema: {
       required: "A name is required",
       minLength: {
@@ -21,6 +22,7 @@ export const contactFormConfig = [
     name: 'email',
     type: 'email',
     placeholder: 'Email',
+    componentType: 'input',
     validationSchema: {
       required: "Email is required",
     }
@@ -30,6 +32,7 @@ export const contactFormConfig = [
     name: 'mobile',
     type: 'numeric',
     placeholder: 'Mobile Number',
+    componentType: 'input',
     validationSchema: {
       required: "Mobile number is required",
       minLength: {
@@ -48,11 +51,20 @@ export const contactFormConfig = [
   },
   {
     id: 4,
-    name: 'location',
+    name: 'additionalInfo',
     type: 'text',
-    placeholder: 'Location',
+    placeholder: 'Tell us more',
+    componentType: 'textarea',
     validationSchema: {
-      required: "Location is required",
+      required: "Let us know how we can help",
+      minLength: {
+        value: 2,
+        message: "Your phone number must be more than 3 characters",
+      },
+      maxLength: {
+        value: 250,
+        message: "Your phone number must be less than 12 characters",
+      },
     }
   }
 ];

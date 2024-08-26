@@ -1,3 +1,6 @@
+// REACT
+import React from "react";
+// TYPES
 import { UseFormRegister } from "react-hook-form";
 
 export interface IFormField {
@@ -5,6 +8,7 @@ export interface IFormField {
   label?: string;
   type?: string;
   placeholder?: string;
+  componentType?: string;
   register: UseFormRegister<any>;
   validationSchema?: {
     required?: string;
@@ -15,3 +19,5 @@ export interface IFormField {
   error?: string; 
   className?: string;
 }
+
+export type ComponentTypeMap = Record<string, React.ElementType>;

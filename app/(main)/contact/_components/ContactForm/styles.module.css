@@ -16,8 +16,7 @@
 
 .text {
   @apply text-lg 
-    text-poppins 
-    text-alternate 
     text-center 
+    font-poppins 
     font-bold;
 }

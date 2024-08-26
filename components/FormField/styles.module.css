@@ -1,13 +1,13 @@
-.field {
+.container {
   @apply w-full 
     flex 
     flex-col 
-    justify-center i
-    tems-start 
+    justify-center
+    items-start 
     gap-5;
 }
 
-.input {
+.field {
   @apply w-full 
     border-solid 
     border-[0.3rem] 

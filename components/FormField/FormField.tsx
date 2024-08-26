@@ -1,15 +1,23 @@
 "use client"
 
+// REACT
+import React from 'react';
 // UTILS
 import { cn } from '@/utils/helpers';
 // TYPES
-import { IFormField } from './types';
+import { IFormField, ComponentTypeMap } from './types';
 // STYLES
 import styles from './styles.module.css';
 
-export function InputField({
+export const ComponentType: ComponentTypeMap = {
+  input: "input",
+  textarea: "textarea",
+}
+
+export function FormField({
   name,
   label,
+  componentType,
   register,
   validationSchema,
   type,
@@ -18,19 +26,20 @@ export function InputField({
   className,
   ...rest
 }: IFormField) : JSX.Element {
+  const Component = ComponentType[componentType as keyof ComponentTypeMap] || ComponentType.input;
+
   return (
-    <div className={cn(`${styles.field}`, className)}>
+    <div className={cn(`${styles.container}`, className)}>
       {label && (
         <label htmlFor={name}>
           {label}
         </label>
       )}
 
-      <input
-        className={`${styles.input}`}
+      <Component
+        className={`${styles.field}`}
         id={name}
         placeholder={placeholder}
-        type={type}
         {...register(name, validationSchema)}
         {...rest}
       />
