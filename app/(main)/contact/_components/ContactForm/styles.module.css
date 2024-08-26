@@ -1,0 +1,22 @@
+.contactForm {
+  @apply w-full 
+    flex 
+    flex-col 
+    justify-center 
+    items-center 
+    gap-5
+}
+
+.header {
+  @apply text-lg
+    text-secondary
+    font-bold
+    font-poppins;
+}
+
+.promptText {
+  @apply text-lg 
+    text-center 
+    font-poppins 
+    font-bold;
+}

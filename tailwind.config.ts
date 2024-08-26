@@ -12,6 +12,7 @@ const config: Config = {
         primary: 'rgb(var(--primary))', // BLACK
         secondary: 'rgb(var(--secondary))', // PURPLE
         neutral: 'rgb(var(--neutral))', // WHITE
+        danger: 'rgb(var(--danger))', // RED
       },
       fontFamily: {
         roboto: ['var(--font-roboto)'],
