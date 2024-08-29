@@ -1,5 +1,5 @@
 // COMPONENTS
-import { SignInForm } from "../(dahboard)/signin/_components/SignInForm";
+import { SignInForm } from "../signin/_components/SignInForm";
 import { AdminNavbar } from "./_components/AdminNavbar";
 import { AuthCheck } from "@/components/AuthCheck";
 
