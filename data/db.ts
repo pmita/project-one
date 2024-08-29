@@ -1,11 +1,18 @@
 // FIREBASE
 import { db } from '@/firebase/server/config';
+// UTILS
+import { applyDBFilters } from '@/utils/db';
+// TYPES
+import { IDbFilters } from '@/types/db';
 
 
-const getCollectionData = async (collectionRef: string) => {
+const getCollectionData = async (collectionRef: string, filters: IDbFilters) => {
   const docRef = db.collection(collectionRef).limit(5);
+  const docRefWithFilters = filters 
+    ? applyDBFilters(docRef, filters) 
+    : docRef;
 
-  const docsSnapshot = await docRef.get();
+  const docsSnapshot = await docRefWithFilters.get();
   const docData = docsSnapshot.docs.map((document) => ({
     id: document.id,
     createdAt: document.data().createdAt?.toMillis() || 0,

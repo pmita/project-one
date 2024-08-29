@@ -1,4 +1,5 @@
-// DB
+export type CollectionRef = FirebaseFirestore.Query<FirebaseFirestore.DocumentData, FirebaseFirestore.DocumentData>;
+
 export interface IQueryItem extends FirebaseFirestore.DocumentData {
   id: string;
   email: string;
@@ -10,8 +11,18 @@ export interface IQueryItem extends FirebaseFirestore.DocumentData {
   lastUpdatedAt: number | string;
 }
 
+export interface IDbFilters {
+  status?: string | null;
+  sort?: string | null;
+}
+
 export enum QUERY_STATUS {
   INITIAL = 'INITIAL',
   PROGRESSED = 'PROGRESSED',
   COMPLETED = 'COMPLETED',
+}
+
+export enum ORDER_BY {
+  ASC = 'asc',
+  DESC = 'desc',
 }
