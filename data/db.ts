@@ -7,7 +7,7 @@ import { IDbFilters } from '@/types/db';
 
 
 const getCollectionData = async (collectionRef: string, filters: IDbFilters) => {
-  const docRef = db.collection(collectionRef).limit(5);
+  const docRef = db.collection(collectionRef).limit(100);
   const docRefWithFilters = filters 
     ? applyDBFilters(docRef, filters) 
     : docRef;

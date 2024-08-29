@@ -3,7 +3,7 @@ import { CollectionRef, IDbFilters, ORDER_BY, QUERY_STATUS } from "@/types/db";
 
 export const applyDBFilters = (collectionRef:  CollectionRef, { status = null, sort = null}: IDbFilters) => {
   // filter based on item status
-  if (status && QUERY_STATUS[status.toLowerCase() as keyof typeof QUERY_STATUS]) {
+  if (status && QUERY_STATUS[status as keyof typeof QUERY_STATUS]) {
     collectionRef = collectionRef.where('status', '==', status);
   }
 

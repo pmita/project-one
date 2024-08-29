@@ -1,0 +1,7 @@
+.container {
+  @apply flex 
+    flex-row 
+    justify-start 
+    items-center 
+    gap-2;
+}
