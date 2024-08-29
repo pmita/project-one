@@ -12,11 +12,13 @@ if(!admin.apps.length) {
 }
 
 // SERVICES
-export const firestore = admin.firestore();
+const firestore = admin.firestore();
 
 // HELPERS
-export const serverTimestamp = admin.firestore.FieldValue.serverTimestamp;
-export const increment = admin.firestore.FieldValue.increment;
-export const fromMillis = admin.firestore.Timestamp.fromMillis;
-export const arrayUnion = admin.firestore.FieldValue.arrayUnion;
-export const arrayRemove = admin.firestore.FieldValue.arrayRemove;
+const serverTimestamp = admin.firestore.FieldValue.serverTimestamp;
+const increment = admin.firestore.FieldValue.increment;
+const fromMillis = admin.firestore.Timestamp.fromMillis;
+const arrayUnion = admin.firestore.FieldValue.arrayUnion;
+const arrayRemove = admin.firestore.FieldValue.arrayRemove;
+
+export { firestore, serverTimestamp, increment, fromMillis, arrayUnion, arrayRemove };
