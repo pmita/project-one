@@ -8,8 +8,10 @@ import { FormatedTime } from '@/components/FormatedTime';
 import { cn, truncate } from '@/utils/helpers';
 // STYLES
 import styles from './styles.module.css';
+// TYPES
+import { IQueryItem } from '@/types/db';
 
-export const ItemCard = ({ item }: { item : any}) => {
+export const ItemCard = ({ item }: { item : IQueryItem | null }) => {
 
   if (!item) return null;
 
