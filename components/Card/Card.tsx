@@ -3,7 +3,7 @@ import { cn } from '@/utils/helpers';
 // TYPES
 import { ICard, ICardHeading, ICardDescription } from './types';
 // STYLES
-import styles from './Card.module.css';
+import styles from './styles.module.css';
 
 const Card = ({ className, ...props}: ICard ) => {
   return (
