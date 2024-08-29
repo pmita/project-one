@@ -33,7 +33,6 @@ export const useSignIn = () => {
     }catch(error) {
       if (isCancelled) {
         setError((error as Error).message);
-        console.log((error as Error).message);
       }
     }finally {
       setIsLoading(false);

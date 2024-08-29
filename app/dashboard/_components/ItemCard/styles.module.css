@@ -1,0 +1,26 @@
+.container { 
+  @apply bg-neutral 
+    flex 
+    flex-col 
+    justify-center 
+    items-stretch;
+}
+
+.header {
+  @apply flex-1 
+    flex-row 
+    justify-between 
+    items-center;
+}
+
+.description {
+  @apply flex-1;
+}
+
+.footer {
+  @apply flex-1 
+    flex-col 
+    justify-center 
+    items-stretch 
+    gap-2;
+}

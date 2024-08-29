@@ -1,0 +1,33 @@
+.container {
+  @apply rounded-[6px] 
+    border 
+    bg-neutral 
+    text-primary 
+    shadow-sm;
+}
+
+.header {
+  @apply flex 
+    flex-col 
+    gap-5 
+    p-4;
+}
+
+.title {
+  @apply text-sm 
+    text-primary 
+    font-bold;
+}
+
+.description {
+  @apply text-sm 
+    text-primary 
+    font-normal 
+    p-4;
+}
+
+.footer {
+  @apply flex 
+    items-center 
+    p-4;
+}

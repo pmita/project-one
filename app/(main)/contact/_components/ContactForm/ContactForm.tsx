@@ -17,6 +17,7 @@ import { cn } from "@/utils/helpers";
 import { IContactForm } from "./types";
 // STYLES
 import styles from "./styles.module.css";
+import { QUERY_STATUS } from "@/types/db";
 
 
 export const ContactForm = () => {
@@ -40,7 +41,8 @@ export const ContactForm = () => {
         fullName,
         email,
         mobile,
-        additionalInfo
+        additionalInfo,
+        status: QUERY_STATUS.INITIAL,
       }
     )
 
