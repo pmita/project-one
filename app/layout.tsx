@@ -1,7 +1,13 @@
+// NEXT
 import type { Metadata } from "next";
+// CONTEXT
+import { AuthContextProvider } from "@/context//AuthContext";
+// CONFIG
 import { roboto, poppins } from "@/config/fonts";
-import "./globals.css";
+// UTILS
 import { cn } from "@/utils/helpers";
+// STYLES
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Help next door",
@@ -22,7 +28,9 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   );

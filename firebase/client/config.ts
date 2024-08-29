@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 // FIREBASE SERVICES
 import "firebase/firestore";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
@@ -19,5 +20,8 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
+// AUTHENTICATION
+const auth = firebase.auth();
+
 // EXPORTS
-export { db, timestamp };
+export { db, timestamp, auth };

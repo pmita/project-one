@@ -1,0 +1,8 @@
+.container {
+  @apply max-w-[300px] 
+    flex 
+    flex-col 
+    justify-center 
+    items-center 
+    gap-5;
+}
