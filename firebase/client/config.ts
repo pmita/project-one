@@ -19,9 +19,10 @@ if (!firebase.apps.length) {
 // FIRESTORE
 const db = firebase.firestore();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+const fromMillis = (millis: number) => firebase.firestore.Timestamp.fromMillis(millis);
 
 // AUTHENTICATION
 const auth = firebase.auth();
 
 // EXPORTS
-export { db, timestamp, auth };
+export { db, timestamp, fromMillis, auth };
