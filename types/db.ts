@@ -1,5 +1,13 @@
-export type CollectionRef = FirebaseFirestore.Query<FirebaseFirestore.DocumentData, FirebaseFirestore.DocumentData>;
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import { Query as AdminQuery, CollectionReference as AdminCollectionReference } from 'firebase-admin/firestore';
 
+export type CollectionRef<T = firebase.firestore.DocumentData> = 
+  | firebase.firestore.Query<T>
+  | firebase.firestore.CollectionReference<T>
+  | AdminQuery<T>
+  | AdminCollectionReference<T>;
+  
 export interface IQueryItem extends FirebaseFirestore.DocumentData {
   id: string;
   email: string;
@@ -12,8 +20,10 @@ export interface IQueryItem extends FirebaseFirestore.DocumentData {
 }
 
 export interface IDbFilters {
+  limit?: number | null;
   status?: string | null;
   sort?: string | null;
+  startAfter?: string | firebase.firestore.Timestamp | null;
 }
 
 export enum QUERY_STATUS {
