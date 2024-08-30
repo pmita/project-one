@@ -1,0 +1,22 @@
+.gridContainer {
+  @apply grid 
+    grid-cols-1 
+    auto-rows-[285px] 
+    gap-4 
+    lg:grid-cols-2 
+    lg:gap-8 mt-4;
+}
+
+.loadMore {
+  @apply flex 
+    flex-col 
+    justify-center 
+    items-center 
+    pt-5;
+}
+
+.styledText { 
+  @apply text-center 
+    text-neutral;
+}
+
