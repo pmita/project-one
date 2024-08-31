@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Card, CardDescription, CardFooter, CardHeader } from '@/components/Card';
 import { buttonVariants } from '@/components/Button';
 import { FormatedTime } from '@/components/FormatedTime';
+import { Status } from '@/components/Status';
 // UTILS
 import { cn, truncate } from '@/utils/helpers';
 // STYLES
@@ -18,6 +19,7 @@ export const ItemCard = ({ item }: { item : IQueryItem | null }) => {
   return (
     <Card className={`${styles.container}`}>
       <CardHeader className={`${styles.header}`}>
+        <Status status={item.status} />
         <FormatedTime time={item.createdAt} />
       </CardHeader>
       <CardDescription className={`${styles.description}`}>
