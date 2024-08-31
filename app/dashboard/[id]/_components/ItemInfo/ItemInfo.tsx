@@ -15,7 +15,7 @@ export const ItemInfo = ({
         <h1>Name: {item.fullName}</h1>
         <h1>Email: {item.email}</h1>
         <h1>Mobile: {item.mobile}</h1>
-        <p>Details: {item.additionalInfo}</p>
+        <h1>Details: {item.additionalInfo}</h1>
       </CardDescription>
     </Card>
   )
