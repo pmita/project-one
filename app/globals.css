@@ -6,7 +6,11 @@
   --primary: 30 30 30; /* BLACK */
   --secondary: 113 73 230; /* PURPLE */
   --neutral: 255 255 255; /* WHITE */
-  --danger: 243 78 78; /* red */
+  --danger: 243 78 78; /* RED */
+  --accent: 0 149 255; /* BLUE */
+  --highlight: 233 172 46; /* YELLOW */
+  --success: 34 197 94; /* GREEN */
+  --muted: 241 245 249; /* GRAY */
 }
 
 * {

@@ -13,6 +13,10 @@ const config: Config = {
         secondary: 'rgb(var(--secondary))', // PURPLE
         neutral: 'rgb(var(--neutral))', // WHITE
         danger: 'rgb(var(--danger))', // RED
+        accent : 'rgb(var(--accent))', /* BLUE */
+        highlight : 'rgb(var(--highlight))', /* YELLOW */
+        success : 'rgb(var(--success))', /* GREEN */
+        muted: 'rgb(var(--muted))', /* GREY */
       },
       fontFamily: {
         roboto: ['var(--font-roboto)'],
