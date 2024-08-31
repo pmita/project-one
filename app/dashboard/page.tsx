@@ -15,8 +15,6 @@ export default async function DashboardPage({ searchParams }: { searchParams: Se
   // SERVERLAND
   const items = await getCollectionData('queries', searchParams);
 
-  console.log('items', items);
-
   return (
     <>
       <section className="flex flex-row justify-between items-stretch flex-wrap">
