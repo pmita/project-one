@@ -1,7 +1,7 @@
 // UTILS
 import { cn } from '@/utils/helpers';
 // TYPES
-import { ICard, ICardHeading, ICardDescription } from './types';
+import { ICard, ICardHeading } from './types';
 // STYLES
 import styles from './styles.module.css';
 
@@ -41,9 +41,9 @@ const CardTitle = ({ className, ...props}: ICardHeading) => {
   );
 };
 
-const CardDescription = ({ className, ...props}: ICardDescription) => {
+const CardDescription = ({ className, ...props}: ICard) => {
   return (
-    <p
+    <div
       className={cn(
         `${styles.description}`,
         className
