@@ -1,0 +1,46 @@
+.statusTag {
+  @apply whitespace-nowrap 
+    font-semibold 
+    leading-none 
+    text-neutral 
+    rounded-[6px] 
+    border-solid 
+    border-[0.3rem];
+}
+
+.primary {
+  @apply bg-primary 
+    border-primary;
+}
+
+.success {
+  @apply bg-success 
+  border-success;
+}
+
+.accent {
+  @apply bg-accent 
+    border-accent;
+}
+
+.highlight {
+  @apply bg-highlight 
+    border-highlight;
+}
+
+/* Sizes */
+
+.default {
+  @apply py-[0.5rem] 
+    px-[1rem];
+}
+
+.small {
+  @apply py-[0.25rem] 
+    px-[0.75rem];
+}
+
+.large {
+  @apply py-[0.75rem] 
+    px-[1.25rem];
+}
