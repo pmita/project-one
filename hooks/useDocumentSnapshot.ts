@@ -7,7 +7,7 @@ import { db } from '@/firebase/client/config';
 
 export const useDocumentSnapshot = (collection: string, docId: string) => {
   //STATE
-  const [data, setData] = useState<firebase.firestore.DocumentData | null>(null);
+  const [data, setData] = useState<firebase.firestore.DocumentData| null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | string | null>(null);
 
@@ -21,7 +21,7 @@ export const useDocumentSnapshot = (collection: string, docId: string) => {
           ...doc.data(),
           id: doc.id,
           createdAt: doc.data()?.createdAt.toMillis() ?? null,
-          lastUpdated: doc.data()?.lastUpdated.toMillis() ?? null,
+          lastUpdatedAt: doc.data()?.lastUpdatedAt.toMillis() ?? null,
         });
 
         setIsLoading(false);

@@ -21,7 +21,7 @@ export const useDB = () => {
       const response = await docRef.add({
         ...data,
         createdAt: timestamp(),
-        lastUpdated: timestamp()
+        lastUpdatedAt: timestamp()
       });
 
       if(!response) {
@@ -46,7 +46,7 @@ const updateDocument = useCallback(async (collection:string, documentId: string,
   try {
     await docRef.update({
       ...data,
-      lastUpdated: timestamp()
+      lastUpdatedAt: timestamp()
     });
   }catch(err) {
     setError((err as Error).message);

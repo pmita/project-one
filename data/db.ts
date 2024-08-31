@@ -17,7 +17,7 @@ const getCollectionData = async (collection: string, filters: IDbFilters) => {
     id: document.id,
     ...document.data(),
     createdAt: document.data().createdAt?.toMillis() ?? null,
-    lastUpdated: document.data().lastUpdated?.toMillis() ?? null,
+    lastUpdatedAt: document.data().lastUpdatedAt?.toMillis() ?? null,
   }));
 
   return docData as FirebaseFirestore.DocumentData[] | [];
@@ -32,8 +32,8 @@ const getDocumentData = async (collection: string, document: string) => {
   return {
     id: snapshot.id,
     ...docData,
-    createdAt: docData?.createdAt.toMillis() ?? null,
-    lastUpdated: docData?.lastUpdated.toMillis() ?? null,
+    createdAt: docData?.createdAt?.toMillis() ?? null,
+    lastUpdatedAt: docData?.lastUpdatedAt?.toMillis() ?? null,
   } as FirebaseFirestore.DocumentData | null;
 }
 
