@@ -1,7 +1,11 @@
 // DATA
 import { getDocumentData } from "@/data/db";
+// COMPONENTS
 import { ItemInfo } from "./_components/ItemInfo";
+import { Status } from "@/components/Status";
+// TYPES
 import { IQueryItem } from "@/types/db";
+import { UpdateStatus } from "./_components/ItemStatus";
 
 interface DashboardItemPageProps {
   params: {
@@ -23,7 +27,11 @@ export default async function ItemPage({ params }: DashboardItemPageProps) {
           <ItemInfo item={item as IQueryItem} />
         </div>
         <div className="rounded-lg bg-neutral flex flex-col justify-center items-stretch gap-4 p-2 lg:p-4">
-          <h1>Status update will go here - realtime details</h1>
+          <div className="flex flex-row justify-center items-center gap-4">
+            <span>Status:</span>
+            <Status status={item.status} />
+          </div>
+          <UpdateStatus id={item.id} status={item.status} />
         </div>
         <div className="rounded-lg bg-neutral lg:col-span-2 p-4 flex flex-col gap-4">
           <h1>Comments will go here - realtime details</h1>

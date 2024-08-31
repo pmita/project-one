@@ -37,5 +37,23 @@ export const useDB = () => {
     }
 }, [isLoading, error, hasQueryBeenSent]);
 
-  return { isLoading, hasQueryBeenSent, error, addDocument };
+const updateDocument = useCallback(async (collection:string, documentId: string,  data: object) => {
+  setIsLoading(true);
+  setError(null);
+
+  const docRef = db.collection(collection).doc(documentId);
+
+  try {
+    await docRef.update({
+      ...data,
+      lastUpdated: timestamp()
+    });
+  }catch(err) {
+    setError((err as Error).message);
+  }finally {
+    setIsLoading(false);
+  }
+}, [isLoading, error]);
+
+  return { isLoading, hasQueryBeenSent, error, addDocument, updateDocument };
 }
