@@ -31,14 +31,6 @@ export default async function ItemPage({ params }: DashboardItemPageProps) {
           item={item as IQueryItem} 
           comments={comments as ICommentItem[]}
         />
-        <div className="rounded-lg bg-neutral lg:col-span-2 p-4 flex flex-col gap-4">
-          <Comments 
-            id={item.id} 
-            status={item.status} 
-            comments={comments as ICommentItem[]} 
-            canAddComments 
-          />
-        </div>
       </div>
     </section>
   )
