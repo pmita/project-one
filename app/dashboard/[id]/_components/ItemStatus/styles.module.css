@@ -1,0 +1,20 @@
+.formContainer {
+  @apply flex 
+    flex-row 
+    justify-center 
+    items-center 
+    gap-2;
+}
+
+.selectContainer {
+  @apply flex-1 
+    w-full 
+    border-solid 
+    border-[0.3rem] 
+    border-primary 
+    p-2;
+}
+
+.errorText {
+  @apply text-danger;
+}

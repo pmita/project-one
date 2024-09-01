@@ -1,0 +1,6 @@
+.container {
+  @apply animate-pulse 
+  rounded-[6px] 
+  bg-secondary
+  opacity-10;
+}

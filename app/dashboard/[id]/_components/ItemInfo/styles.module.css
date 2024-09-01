@@ -1,0 +1,12 @@
+.container {
+  @apply w-full 
+    h-full 
+    rounded-lg 
+    bg-neutral 
+    flex 
+    flex-col 
+    justify-center 
+    items-stretch 
+    p-2 
+    lg:p-4;
+}
