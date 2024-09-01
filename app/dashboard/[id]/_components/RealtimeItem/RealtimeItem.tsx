@@ -6,6 +6,7 @@ import { UpdateStatus } from "../ItemStatus";
 import { Comments } from "@/components/Comments";
 // HOOKS
 import { useDocumentSnapshot } from "@/hooks/useDocumentSnapshot";
+import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 // TYPES
 import { ICommentItem, IQueryItem } from "@/types/db";
 // STYLES
@@ -20,7 +21,7 @@ interface RealtimeItemProps {
 export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
   // STATE && VARIABLES
   const { data: realtimeItem } = useDocumentSnapshot('queries', item.id);
-  const { data: realtimeComments } = useDocumentSnapshot(`queries/${item.id}/comments`, 'comments');
+  const { data: realtimeComments } = useCollectionSnapshot(`queries/${item.id}/comments`, { sort: 'asc' });
   const itemData = realtimeItem || item;
   const commentsData = realtimeComments || comments;
 
@@ -33,10 +34,10 @@ export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
           </div>
           <UpdateStatus id={itemData.id} status={itemData.status} />
         </div>
-        <div className="rounded-lg bg-neutral lg:col-span-2 p-4 flex flex-col gap-4">
+        <div className={`${styles.commentsContainer}`}>
           <Comments 
             id={item.id} 
-            status={item.status} 
+            status={itemData.status} 
             comments={commentsData as ICommentItem[]} 
             canAddComments 
           />

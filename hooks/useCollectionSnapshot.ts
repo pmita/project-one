@@ -26,8 +26,8 @@ export const useCollectionSnapshot = (collection: string, filters: IDbFilters) =
         const docs = snapshot.docs.map((doc: FirebaseFirestore.DocumentData) => ({
           ...doc.data(),
           id: doc.id,
-          createdAt: doc.data().createdAt.toMillis() ?? null,
-          lastUpdated: doc.data().lastUpdated.toMillis() ?? null,
+          createdAt: doc.data().createdAt?.toMillis() ?? null,
+          lastUpdated: doc.data().lastUpdated?.toMillis() ?? null,
         }));
 
         setData(docs);
