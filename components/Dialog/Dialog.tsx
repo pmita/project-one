@@ -46,7 +46,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
     )
   }
   
-  export const DialogTitle = React.forwardRef<HTMLDivElement, IDialogPanel>(({ className, ...props }) => {
+  export const DialogTitle = ({ className, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
        `${styles.title}`,
@@ -55,8 +55,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
         {...props}
       />
     )
-  })
-  DialogTitle.displayName = "DialogTitle";
+  }
   
   export const DialogDescription = ({ className, ...props }: IDialogPanel) => {
     return (
