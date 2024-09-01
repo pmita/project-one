@@ -1,0 +1,28 @@
+
+.fallbackText {
+  @apply text-center 
+    font-bold 
+    text-primary
+}
+
+.title {
+  @apply font-bold
+    text-primary;
+}
+
+.commentFooter {
+  @apply flex-row
+    justify-between;
+}
+
+.formContainer {
+  @apply flex 
+    flex-col 
+    justify-start 
+    items-start 
+    gap-4;
+}
+
+.errorText {
+  @apply text-danger;
+}

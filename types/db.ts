@@ -19,6 +19,14 @@ export interface IQueryItem extends FirebaseFirestore.DocumentData {
   lastUpdatedAt: number | string;
 }
 
+export interface ICommentItem extends FirebaseFirestore.DocumentData {
+  content: string;
+  createdAt: number | string;
+  status: QUERY_STATUS;
+  lastUpdatedAt: number | string;
+  id: string;
+}
+
 export interface IDbFilters {
   limit?: number | null;
   status?: string | null;
