@@ -1,4 +1,4 @@
-.container {
+.dialogContainer {
   @apply container 
     relative 
     bg-slate-900/20 
@@ -16,7 +16,7 @@
   @apply absolute 
     h-full 
     z-[2000] 
-    bg-secondary 
+    bg-neutral 
     overflow-y-scroll 
     right-0 
     top-0 
