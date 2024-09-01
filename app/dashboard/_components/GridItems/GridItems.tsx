@@ -23,42 +23,42 @@ const TEN_MORE_ITEMS = 10;
 export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
   // STATE && VARIABLES
   const [currentItems, setCurrentItems] = useState<IQueryItem[] | null>(items);
-  const { isLoading, error, fetchCollectionData } = useFetchCollectionData(); 
+  const { isLoading, fetchCollectionData } = useFetchCollectionData(); 
   const [hasMore, setHasMore] = useState(true);
   const searchParams = useSearchParams();
   const status = searchParams.get('status');
 
-  if (!currentItems || !currentItems.length) return null;
-
   useEffect(() => {
     setCurrentItems(items)
     setHasMore(true)
-}, [status]);
+  }, [status]);
 
+  if (!currentItems || !currentItems.length) return null;
+  
   // EVENTS
   const loadMoreItems = useCallback(async () => {
     const lastItem = currentItems[currentItems.length - 1];
     const lastItemTimestamp = typeof lastItem?.createdAt === 'number'
-      ? fromMillis(lastItem.createdAt)
-      : lastItem?.createdAt;
-
+    ? fromMillis(lastItem.createdAt)
+    : lastItem?.createdAt;
+    
     const filters = {
       sort: 'desc',
       startAfter: lastItemTimestamp,
       limit: TEN_MORE_ITEMS
     }
-
+    
     const additionalItems = await fetchCollectionData('queries', filters);
-
+    
     if (additionalItems) {
       setCurrentItems([...currentItems, ...additionalItems]);
     }
-
+    
     if (additionalItems && additionalItems?.length < TEN_MORE_ITEMS) {
       setHasMore(false);
     }
   }, [currentItems]);
-
+  
   return (
     <>
       <div className={`${styles.gridContainer}`}>
