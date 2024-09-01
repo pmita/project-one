@@ -9,6 +9,7 @@
 
 .field {
   @apply w-full 
+    text-primary
     border-solid 
     border-[0.3rem] 
     border-primary 

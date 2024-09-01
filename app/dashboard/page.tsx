@@ -20,7 +20,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Se
       <section className="flex flex-row justify-between items-stretch flex-wrap">
         <FilterOptions option={searchParams.status || 'ALL'} />
       </section>
-      <GridItems items={items as IQueryItem[]} />
+      {items && items.length 
+        ? <GridItems items={items as IQueryItem[]} />
+        : <div className="grid place-items-center min-h-[250px]">
+            <h1>No items found</h1>
+          </div>
+      }
     </>
   )
 }
