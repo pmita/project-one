@@ -1,0 +1,49 @@
+.dialogContainer {
+  @apply 
+    relative 
+    bg-slate-900/20 
+    backdrop-blur 
+    right-0 
+    top-0 
+    w-full 
+    h-full 
+    overflow-hidden 
+    z-[1000] 
+    outline-[0px];
+}
+
+.panel {
+  @apply absolute 
+    w-[450px]
+    h-full 
+    z-[2000] 
+    bg-neutral 
+    overflow-y-scroll 
+    right-0 
+    top-0;
+}
+
+.header {
+  @apply flex 
+    flex-col 
+    gap-5;
+}
+
+.title {
+  @apply text-sm 
+    text-secondary 
+    font-bold;
+}
+
+.description {
+  @apply text-sm 
+    text-secondary;
+}
+
+.footer {
+  @apply flex 
+  flex-col-reverse 
+  sm:flex-row 
+  sm:justify-end 
+  sm:space-x-2;
+}
