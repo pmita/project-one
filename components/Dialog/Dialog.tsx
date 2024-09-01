@@ -10,7 +10,7 @@ import styles from "./styles.module.css"
 export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className, children, ...props }, ref) => {
     return (
       <dialog className={cn(
-       `${styles.dialogContainer}`,
+       `container ${styles.dialogContainer}`,
         className
       )}
       {...props}

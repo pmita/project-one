@@ -1,9 +1,9 @@
 .dialogContainer {
-  @apply container 
+  @apply 
     relative 
     bg-slate-900/20 
     backdrop-blur 
-    left-0 
+    right-0 
     top-0 
     w-full 
     h-full 
@@ -14,13 +14,13 @@
 
 .panel {
   @apply absolute 
+    w-[450px]
     h-full 
     z-[2000] 
     bg-neutral 
     overflow-y-scroll 
     right-0 
-    top-0 
-    w-[450px];
+    top-0;
 }
 
 .header {
