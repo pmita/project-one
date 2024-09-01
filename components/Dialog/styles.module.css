@@ -1,0 +1,49 @@
+.container {
+  @apply container 
+    relative 
+    bg-slate-900/20 
+    backdrop-blur 
+    left-0 
+    top-0 
+    w-full 
+    h-full 
+    overflow-hidden 
+    z-[1000] 
+    outline-[0px];
+}
+
+.panel {
+  @apply absolute 
+    h-full 
+    z-[2000] 
+    bg-secondary 
+    overflow-y-scroll 
+    right-0 
+    top-0 
+    w-[450px];
+}
+
+.header {
+  @apply flex 
+    flex-col 
+    gap-5;
+}
+
+.title {
+  @apply text-sm 
+    text-secondary 
+    font-bold;
+}
+
+.description {
+  @apply text-sm 
+    text-secondary;
+}
+
+.footer {
+  @apply flex 
+  flex-col-reverse 
+  sm:flex-row 
+  sm:justify-end 
+  sm:space-x-2;
+}
