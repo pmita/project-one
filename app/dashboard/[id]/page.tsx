@@ -1,10 +1,11 @@
 // DATA
-import { getDocumentData } from "@/data/db";
+import { getCollectionData, getDocumentData } from "@/data/db";
 // COMPONENTS
 import { ItemInfo } from "./_components/ItemInfo";
 import { RealtimeItem } from "./_components/RealtimeItem/RealtimeItem";
+import { Comments } from "@/components/Comments/Comments";
 // TYPES
-import { IQueryItem } from "@/types/db";
+import { ICommentItem, IQueryItem } from "@/types/db";
 
 interface DashboardItemPageProps {
   params: {
@@ -16,8 +17,7 @@ export default async function ItemPage({ params }: DashboardItemPageProps) {
   // SERVER LAND
   const { id: itemId } = params;
   const item =  await getDocumentData('queries', itemId);
-
-  console.log(item);
+  const comments = await getCollectionData(`queries/${itemId}/comments`, { sort: 'asc'});
 
   if (!item) return null;
 
@@ -27,9 +27,17 @@ export default async function ItemPage({ params }: DashboardItemPageProps) {
         <div className="rounded-lg bg-neutral gap-4 p-2 lg:p-4">
           <ItemInfo item={item as IQueryItem} />
         </div>
-        <RealtimeItem item={item as IQueryItem} />
+        <RealtimeItem 
+          item={item as IQueryItem} 
+          comments={comments as ICommentItem[]}
+        />
         <div className="rounded-lg bg-neutral lg:col-span-2 p-4 flex flex-col gap-4">
-          <h1>Comments will go here - realtime details</h1>
+          <Comments 
+            id={item.id} 
+            status={item.status} 
+            comments={comments as ICommentItem[]} 
+            canAddComments 
+          />
         </div>
       </div>
     </section>
