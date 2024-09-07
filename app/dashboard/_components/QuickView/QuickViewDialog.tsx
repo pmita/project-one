@@ -11,7 +11,7 @@ import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 // UTILS
 import { cn } from "@/utils/helpers";
 // TYPES
-import { IQueryItem } from "@/types/db";
+import { ICommentItem, IQueryItem } from "@/types/db";
 // STYLES
 import styles from './styles.module.css';
 
@@ -54,7 +54,7 @@ export const QuickViewDialog = ({ item, isOpen, toggleDialog }: QuickViewDialogP
                         <Comments
                             id={item.id}
                             status={item.status}
-                            comments={realtimeComments}
+                            comments={realtimeComments as ICommentItem[]}
                             canAddComments={true}
                         />
                     </div>
