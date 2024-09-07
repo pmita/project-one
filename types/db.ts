@@ -1,13 +1,10 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { Query as AdminQuery, CollectionReference as AdminCollectionReference } from 'firebase-admin/firestore';
+import { CollectionReference as ClientCollectionRef, Query as ClientQuery, DocumentData as ClientDocumentData } from 'firebase/firestore';
+import { CollectionReference as AdminCollectionRef, Query as AdminQuery, DocumentData as AdminDocumentData, Timestamp } from 'firebase-admin/firestore';
 
-export type CollectionRef<T = firebase.firestore.DocumentData> = 
-  | firebase.firestore.Query<T>
-  | firebase.firestore.CollectionReference<T>
-  | AdminQuery<T>
-  | AdminCollectionReference<T>;
-  
+// Create a common type for CollectionRef that supports both Firebase Admin and Firebase Client SDKs
+export type CollectionRefServerSide = AdminCollectionRef<AdminDocumentData> | AdminQuery<AdminDocumentData>;
+export type CollectionRefClientSide = ClientCollectionRef<ClientDocumentData> | ClientQuery<ClientDocumentData>;
+
 export interface IQueryItem extends FirebaseFirestore.DocumentData {
   id: string;
   email: string;
@@ -28,10 +25,10 @@ export interface ICommentItem extends FirebaseFirestore.DocumentData {
 }
 
 export interface IDbFilters {
-  limit?: number | null;
+  numberOfItems?: number | null;
   status?: string | null;
   sort?: string | null;
-  startAfter?: string | firebase.firestore.Timestamp | null;
+  lastItem?: string | Timestamp | null;
 }
 
 export enum QUERY_STATUS {

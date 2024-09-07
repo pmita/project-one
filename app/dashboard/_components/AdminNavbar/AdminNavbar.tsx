@@ -13,7 +13,7 @@ import styles from './styles.module.css';
 
 export const AdminNavbar = () => {
   // STATE && VARIABLES
-  const { signOut } = useSignOut();
+  const { signout } = useSignOut();
 
 
   return (
@@ -30,7 +30,7 @@ export const AdminNavbar = () => {
           buttonVariants({ variant: 'primary', size: 'lg' }), 
           "item-stretch"
         )}
-        onClick={signOut}
+        onClick={signout}
       >
         Sign Out
       </ Button>

@@ -1,11 +1,11 @@
-import { CollectionRef, IDbFilters, ORDER_BY, QUERY_STATUS } from "@/types/db";
+import { CollectionRefServerSide, IDbFilters, ORDER_BY, QUERY_STATUS } from "@/types/db";
 
 
-export const applyDBFilters = (collectionRef:  CollectionRef, { 
-  limit = null, 
+export const applyDBFilters = (collectionRef:  CollectionRefServerSide, { 
+  numberOfItems = null, 
   status = null, 
   sort = null,
-  startAfter = null
+  lastItem = null
 }: IDbFilters) => {
   // filter based on item status
   if (status && QUERY_STATUS[status as keyof typeof QUERY_STATUS]) {
@@ -24,13 +24,13 @@ export const applyDBFilters = (collectionRef:  CollectionRef, {
   }
 
   // filter based on number of items to fetch
-  if(limit) {
-    collectionRef = collectionRef.limit(limit);
+  if(numberOfItems) {
+    collectionRef = collectionRef.limit(numberOfItems);
   }
 
   // filter based on the last item fetched
-  if (startAfter) {
-    collectionRef = collectionRef.startAfter(startAfter);
+  if (lastItem) {
+    collectionRef = collectionRef.startAfter(lastItem);
   }
 
   return collectionRef;

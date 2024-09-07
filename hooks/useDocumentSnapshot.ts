@@ -1,13 +1,13 @@
 // REACT
 import { useState, useEffect } from 'react';
 // FIREBASE
-import firebase from 'firebase/app';
 import { db } from '@/firebase/client/config';
+import { doc, onSnapshot, type DocumentData } from 'firebase/firestore';
 
 
-export const useDocumentSnapshot = (collection: string, docId: string) => {
+export const useDocumentSnapshot = (collectionString: string, docId: string) => {
   //STATE
-  const [data, setData] = useState<firebase.firestore.DocumentData| null>(null);
+  const [data, setData] = useState<DocumentData| null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | string | null>(null);
 
@@ -15,8 +15,10 @@ export const useDocumentSnapshot = (collection: string, docId: string) => {
     setIsLoading(true);
     setError(null);
 
-    const unsubscribe = db.collection(collection).doc(docId).onSnapshot((doc) => {
-      if(doc.exists) {
+    const docRef = doc(db, `${collectionString}/${docId}`);
+
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      if(doc.exists()) {
         setData({
           ...doc.data(),
           id: doc.id,
@@ -36,7 +38,7 @@ export const useDocumentSnapshot = (collection: string, docId: string) => {
     });
 
     return () => unsubscribe();
-  }, [collection, docId]);
+  }, [collectionString, docId]);
 
   return { data, isLoading, error };
 }

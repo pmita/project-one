@@ -28,12 +28,13 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
   const searchParams = useSearchParams();
   const status = searchParams.get('status');
 
+  if (!currentItems || !currentItems.length) return null;
+
   useEffect(() => {
     setCurrentItems(items)
     setHasMore(true)
   }, [status]);
 
-  if (!currentItems || !currentItems.length) return null;
   
   // EVENTS
   const loadMoreItems = useCallback(async () => {
@@ -44,8 +45,8 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
     
     const filters = {
       sort: 'desc',
-      startAfter: lastItemTimestamp,
-      limit: TEN_MORE_ITEMS
+      lastItem: lastItemTimestamp,
+      numberOfItems: TEN_MORE_ITEMS
     }
     
     const additionalItems = await fetchCollectionData('queries', filters);

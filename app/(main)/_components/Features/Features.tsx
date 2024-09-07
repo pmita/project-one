@@ -9,7 +9,7 @@ export const Features = async () => {
       <h1 className={`${styles.header}`}>What we offer?</h1>
       <div className={`${styles.features}`}>
         {featuresConfig.map(({ title, description, svgPath }) => (
-          <div className={`${styles.feature}`}>
+          <div className={`${styles.feature}`} key={svgPath}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50px"

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 // HOOKS
 import { useAuth } from './useAuth';
 // FIREBASE
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase/client/config';
 
 export const useSignIn = () => {
@@ -17,7 +18,7 @@ export const useSignIn = () => {
     setError(null);
    
     try {
-      const authResponse = await auth.signInWithEmailAndPassword(email, password)
+      const authResponse = await signInWithEmailAndPassword(auth, email, password)
     
       if (!authResponse.user) {
         throw new Error('User not found');

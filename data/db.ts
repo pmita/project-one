@@ -1,7 +1,7 @@
 // FIREBASE
 import { db } from '@/firebase/server/config';
 // UTILS
-import { applyDBFilters } from '@/utils/db';
+import { applyDBFilters } from '@/utils/server/db';
 // TYPES
 import { IDbFilters } from '@/types/db';
 
@@ -13,7 +13,7 @@ const getCollectionData = async (collection: string, filters: IDbFilters) => {
     : docsRef;
 
   const docsSnapshot = await docsRefWithFilters.get();
-  const docData = docsSnapshot.docs.map((document):any => ({
+  const docData = docsSnapshot.docs.map((document: FirebaseFirestore.DocumentData) => ({
     id: document.id,
     ...document.data(),
     createdAt: document.data().createdAt?.toMillis() ?? null,

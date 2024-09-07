@@ -2,14 +2,15 @@
 import { useState, useEffect } from 'react';
 // FIREBASE
 import { db } from '@/firebase/client/config';
+import { collection, onSnapshot, type DocumentData } from 'firebase/firestore';
 // UTILS
-import { applyDBFilters } from '@/utils/db';
+import { applyDBFiltersClientSide } from '@/utils/client/db';
 // TYPES
 import { IDbFilters } from '@/types/db';
 
-export const useCollectionSnapshot = (collection: string, filters: IDbFilters) => {
+export const useCollectionSnapshot = (collectionString: string, filters: IDbFilters) => {
   //STATE
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<DocumentData[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | string | null>(null);
 
@@ -17,11 +18,11 @@ export const useCollectionSnapshot = (collection: string, filters: IDbFilters) =
     setIsLoading(true);
     setError(null);
 
-    const docsRef = db.collection(collection);
-    const docsWithFilters = applyDBFilters(docsRef, filters);
+    const docsRef = collection(db, collectionString);
+    const docsWithFilters = applyDBFiltersClientSide(docsRef, filters);
 
-    const unsubscribe = docsWithFilters
-    .onSnapshot((snapshot: { empty: boolean; docs: FirebaseFirestore.DocumentData[]; }) => {
+    const unsubscribe = 
+    onSnapshot(docsWithFilters, (snapshot: { empty: boolean; docs: FirebaseFirestore.DocumentData[]; }) => {
       if(!snapshot.empty) {
         const docs = snapshot.docs.map((doc: FirebaseFirestore.DocumentData) => ({
           ...doc.data(),
