@@ -1,5 +1,7 @@
+import { initializeApp } from "firebase/app";
 import firebase from "firebase/app";
 // FIREBASE SERVICES
+import { getAuth } from "firebase/auth";
 import "firebase/firestore";
 import "firebase/auth";
 
@@ -12,17 +14,18 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-// FIRESTORE
-const db = firebase.firestore();
-const timestamp = firebase.firestore.FieldValue.serverTimestamp;
-const fromMillis = (millis: number) => firebase.firestore.Timestamp.fromMillis(millis);
+const app = initializeApp(firebaseConfig);
 
 // AUTHENTICATION
-const auth = firebase.auth();
+export const auth = getAuth(app);
 
-// EXPORTS
-export { db, timestamp, fromMillis, auth };
+// // FIRESTORE
+// const db = firebase.firestore();
+// const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+// const fromMillis = (millis: number) => firebase.firestore.Timestamp.fromMillis(millis);
+
+// // AUTHENTICATION
+// const auth = firebase.auth();
+
+// // EXPORTS
+// export { db, timestamp, fromMillis, auth };

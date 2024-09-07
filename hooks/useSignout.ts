@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from './useAuth';
 // FIREBASE
 import { auth } from '@/firebase/client/config';
+import { signOut } from 'firebase/auth';
 
 
 export const useSignOut = () => {
@@ -13,12 +14,12 @@ export const useSignOut = () => {
     const [isCancelled, setIsCancelled] = useState(false);
     const { setUser } = useAuth();
 
-    const signOut = async () => {
+    const signout = async () => {
       setIsLoading(false);
       setError(null);
 
       try {
-        await auth.signOut();
+        await signOut(auth);
 
         setUser(null);
 
@@ -38,5 +39,5 @@ export const useSignOut = () => {
       return () => setIsCancelled(true);
     }, []);
 
-    return { error, isLoading, signOut }
+    return { error, isLoading, signout }
 }

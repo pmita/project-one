@@ -3,23 +3,23 @@
 // REACT
 import { createContext, useState, useEffect } from "react";
 // FIREBASE
-import firebase from "firebase/app";
-import { auth } from "@/firebase/client/config";
+import { onAuthStateChanged, type User} from "firebase/auth";
+import { auth } from '@/firebase/client/config';
 
 type AuthContextType = {
-  user: firebase.User | null;
-  setUser: React.Dispatch<React.SetStateAction<firebase.User | null>>;
+  user: User| null;
+  setUser: React.Dispatch<React.SetStateAction<User| null>>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   // STATE && VARIABLES
-  const [user, setUser] = useState<firebase.User | null>(null);
+  const [user, setUser] = useState<User| null>(null);
 
   // USE EFFECTS
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       user ? setUser(user) : setUser(null);
     })
 
