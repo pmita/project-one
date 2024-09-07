@@ -1,7 +1,8 @@
 // REACT
 import { useState, useCallback } from 'react';
 // FIREBASE
-import { db, timestamp } from '@/firebase/client/config';
+import { db } from '@/firebase/client/config';
+import { collection, addDoc, updateDoc, doc, serverTimestamp } from 'firebase/firestore';
 
 export const useDB = () => {
   // STATE & HOOKS
@@ -10,18 +11,18 @@ export const useDB = () => {
   const [hasQueryBeenSent, setHasQueryBeenSent] = useState(false);
 
   // FUNCTIONS
-  const addDocument = useCallback(async (collection:string, data: object) => {
+  const addDocument = useCallback(async (collectionString:string, data: object) => {
     setIsLoading(true);
     setHasQueryBeenSent(false);
     setError(null);
 
-    const docRef = db.collection(collection);
+    const docRef = collection(db, collectionString);
 
     try {
-      const response = await docRef.add({
+      const response = await addDoc(docRef,{
         ...data,
-        createdAt: timestamp(),
-        lastUpdatedAt: timestamp()
+        createdAt: serverTimestamp(),
+        lastUpdatedAt: serverTimestamp()
       });
 
       if(!response) {
@@ -37,16 +38,16 @@ export const useDB = () => {
     }
 }, [isLoading, error, hasQueryBeenSent]);
 
-const updateDocument = useCallback(async (collection:string, documentId: string,  data: object) => {
+const updateDocument = useCallback(async (collectionString:string, documentId: string,  data: object) => {
   setIsLoading(true);
   setError(null);
 
-  const docRef = db.collection(collection).doc(documentId);
+  const docRef = doc(db, `${collectionString}/${documentId}`);
 
   try {
-    await docRef.update({
+    await updateDoc(docRef,{
       ...data,
-      lastUpdatedAt: timestamp()
+      lastUpdatedAt: serverTimestamp()
     });
   }catch(err) {
     setError((err as Error).message);
