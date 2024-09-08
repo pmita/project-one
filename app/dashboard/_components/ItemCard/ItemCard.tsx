@@ -18,23 +18,6 @@ export const ItemCard = ({ item }: { item : IQueryItem | null }) => {
   if (!item) return null;
 
   return (
-    <Card className={`${styles.itemContainer}`}>
-      <CardHeader className={`${styles.itemHeader}`}>
-        <Status status={item.status} />
-        <FormatedTime time={item.createdAt} />
-      </CardHeader>
-      <CardDescription className={`${styles.itemDescription}`}>
-        {truncate(item.additionalInfo, 150)}
-      </CardDescription>
-      <CardFooter className={`${styles.itemFooter}`}>
-        <Link 
-            className={cn(buttonVariants({ variant: 'primary', size: 'sm' }))}
-            href={`/dashboard/${item.id}`}
-        >
-            Edit
-        </Link>
-        <QuickView item={item} />
-      </CardFooter>
-    </Card>
+
   )
 }
