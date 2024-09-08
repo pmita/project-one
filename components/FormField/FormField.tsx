@@ -38,6 +38,7 @@ export function FormField({
 
       <Component
         className={`${styles.field}`}
+        type={type}
         id={name}
         placeholder={placeholder}
         {...register(name, validationSchema)}
