@@ -6,7 +6,7 @@ import { applyDBFilters } from '@/utils/server/db';
 import { IDbFilters } from '@/types/db';
 
 
-const getCollectionData = async (collection: string, filters: IDbFilters) => {
+export const getCollectionData = async (collection: string, filters: IDbFilters): Promise<FirebaseFirestore.DocumentData[]> => {
   const docsRef = db.collection(collection).limit(5);
   const docsRefWithFilters = filters 
     ? applyDBFilters(docsRef, filters) 
@@ -20,10 +20,10 @@ const getCollectionData = async (collection: string, filters: IDbFilters) => {
     lastUpdatedAt: document.data().lastUpdatedAt?.toMillis() ?? null,
   }));
 
-  return docData as FirebaseFirestore.DocumentData[] | [];
+  return docData;
 };
 
-const getDocumentData = async (collection: string, document: string) => {
+export const getDocumentData = async (collection: string, document: string): Promise<FirebaseFirestore.DocumentData | null> => {
   const docRef = db.collection(collection).doc(document);
 
   const snapshot = await docRef.get();
@@ -34,7 +34,6 @@ const getDocumentData = async (collection: string, document: string) => {
     ...docData,
     createdAt: docData?.createdAt?.toMillis() ?? null,
     lastUpdatedAt: docData?.lastUpdatedAt?.toMillis() ?? null,
-  } as FirebaseFirestore.DocumentData | null;
+  }
 }
 
-export { getCollectionData, getDocumentData};
