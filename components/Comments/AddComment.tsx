@@ -15,7 +15,7 @@ import { IAddCommentForm } from "./types";
 // UTILS
 import { cn } from "@/utils/helpers";
 // CONFIG
-import { addCommentFormConfig } from "./config";
+import { addCommentFormConfig } from "@/config/comment";
 // STYLES
 import styles from "./styles.module.css";
 

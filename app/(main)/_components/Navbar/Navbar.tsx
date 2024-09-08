@@ -7,7 +7,7 @@ import { cn } from '@/utils/helpers';
 // STYLES
 import styles from './styles.module.css';
 
-export const Navbar = async () => {
+export async function Navbar() {
   return (
     <nav className={`container ${styles.navbar}`}>
       <Link href="/" className={`${styles.brand}`}>OurBrand</Link>

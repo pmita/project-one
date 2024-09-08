@@ -1,9 +1,9 @@
 // CONFIG
-import { featuresConfig } from './config'
+import { featuresConfig } from '@/config/features';
 // STYLES
 import styles from './styles.module.css'
 
-export const Features = async () => {
+export async function Features() {
   return (
     <section className={`${styles.featuresSection}`}>
       <h1 className={`${styles.header}`}>What we offer?</h1>

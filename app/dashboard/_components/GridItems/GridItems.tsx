@@ -49,7 +49,7 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
       numberOfItems: TEN_MORE_ITEMS
     }
     
-    const additionalItems = await fetchCollectionData('queries', filters);
+    const additionalItems = await fetchCollectionData('queries', filters) as IQueryItem[] | null;
     
     if (additionalItems) {
       setCurrentItems([...currentItems, ...additionalItems]);

@@ -2,11 +2,9 @@
 
 // HOOKS
 import { useAuth } from '@/hooks/useAuth';
+// TYPES
+import { AuthCheckProps } from './types';
 
-interface AuthCheckProps {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
-}
 
 export const AuthCheck = ({ children, fallback }: AuthCheckProps) => {
   // STATE && VARIABLES

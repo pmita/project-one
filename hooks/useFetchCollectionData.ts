@@ -11,15 +11,15 @@ import { IDbFilters, IQueryItem } from '@/types/db';
 export const useFetchCollectionData = () => {
   // STATE & HOOKS
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<Error | string | null>(null);
 
   // FUNCTIONS
-const fetchCollectionData = useCallback(async (collectionString: string, filters: IDbFilters) => {
+const fetchCollectionData = useCallback(async (collectionPath: string, filters: IDbFilters) => {
   setIsLoading(true);
   setError(null);
   let data = null;
 
-  const collectionRef = collection(db, collectionString);
+  const collectionRef = collection(db, collectionPath);
   const collectionRefWithFilters = applyDBFiltersClientSide(collectionRef, filters);
 
   try {
@@ -31,7 +31,7 @@ const fetchCollectionData = useCallback(async (collectionString: string, filters
       lastUpdatedAt: doc?.data().lastUpdatedAt ?? null,
     }));
 
-    data = docsData as IQueryItem[] | [];
+    data = docsData as DocumentData[] | null;
   }catch(error) {
     setError((error as Error).message);
   }finally {

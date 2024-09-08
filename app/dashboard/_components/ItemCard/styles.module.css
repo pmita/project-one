@@ -1,23 +1,22 @@
-.container { 
-  @apply bg-neutral 
-    flex 
+.itemContainer { 
+  @apply flex 
     flex-col 
     justify-center 
     items-stretch;
 }
 
-.header {
+.itemHeader {
   @apply flex-1 
     flex-row 
     justify-between 
     items-center;
 }
 
-.description {
+.itemDescription {
   @apply flex-1;
 }
 
-.footer {
+.itemFooter {
   @apply flex-1 
     flex-col 
     justify-center 

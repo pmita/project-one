@@ -11,12 +11,9 @@ import { useDB } from "@/hooks/useDB"
 import { cn } from "@/utils/helpers"
 // TYPES
 import { QUERY_STATUS } from '@/types/db';
+import { IStatusForm } from './types';
 // STYLES
 import styles from './styles.module.css';
-
-interface IStatusForm {
-  status: string;
-}
 
 export const UpdateStatus = ({ id, status }: { id: string, status: string }) => {
   //STATE && VARIABLES
@@ -29,7 +26,7 @@ export const UpdateStatus = ({ id, status }: { id: string, status: string }) => 
 
   // EVENTS
   const onSubmit = useCallback(async ({ status }: IStatusForm) => {
-    await updateDocument('queries', id, { status });
+    await updateDocument(`queries/${id}`, { status });
   }, [status, id]);
 
   return (

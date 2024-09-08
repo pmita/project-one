@@ -8,19 +8,15 @@ import { Comments } from "@/components/Comments";
 import { useDocumentSnapshot } from "@/hooks/useDocumentSnapshot";
 import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 // TYPES
-import { ICommentItem, IQueryItem } from "@/types/db";
+import { ICommentItem } from "@/types/db";
+import { RealtimeItemProps } from "./types";
 // STYLES
 import styles from './styles.module.css'
-
-interface RealtimeItemProps {
-  item: IQueryItem;
-  comments: ICommentItem[];
-}
 
 
 export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
   // STATE && VARIABLES
-  const { data: realtimeItem } = useDocumentSnapshot('queries', item.id);
+  const { data: realtimeItem } = useDocumentSnapshot(`queries/${item.id}`);
   const { data: realtimeComments } = useCollectionSnapshot(`queries/${item.id}/comments`, { sort: 'asc' });
   const itemData = realtimeItem || item;
   const commentsData = realtimeComments || comments;

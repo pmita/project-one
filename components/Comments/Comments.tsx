@@ -4,16 +4,10 @@ import { Status } from "@/components/Status";
 import { FormatedTime } from "@/components/FormatedTime";
 import { AddComment } from "./AddComment";
 // TYPES
-import { ICommentItem, QUERY_STATUS } from "@/types/db";
+import { ICommentItem } from "@/types/db";
+import { CommentsProps } from "./types";
 // STYLES
 import styles from "./styles.module.css";
-
-type CommentsProps = {
-  id: string;
-  status: QUERY_STATUS;
-  comments: ICommentItem[];
-  canAddComments?: boolean
-}
 
 export const Comments = ({
   id,
@@ -21,11 +15,11 @@ export const Comments = ({
   comments,
   canAddComments = false
 }: CommentsProps) => {
-  if (!comments) return <h1 className={`${styles.fallbackText}`}>No comments yet</h1>;
+  if (!comments) return <h1 className={`${styles.commentfallback}`}>No comments yet</h1>;
 
   return (
     <>
-      <h1 className={`${styles.title}`}>Comments</h1>
+      <h1 className={`${styles.commentTitle}`}>Comments</h1>
       {comments.map((comment: ICommentItem) => (
         <Card key={comment.id}>
           <CardDescription>{comment.content}</CardDescription>

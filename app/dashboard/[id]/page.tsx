@@ -3,7 +3,6 @@ import { getCollectionData, getDocumentData } from "@/data/db";
 // COMPONENTS
 import { ItemInfo } from "./_components/ItemInfo";
 import { RealtimeItem } from "./_components/RealtimeItem/RealtimeItem";
-import { Comments } from "@/components/Comments/Comments";
 // TYPES
 import { ICommentItem, IQueryItem } from "@/types/db";
 

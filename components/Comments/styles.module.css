@@ -1,11 +1,11 @@
 
-.fallbackText {
+.commentfallback {
   @apply text-center 
     font-bold 
     text-primary
 }
 
-.title {
+.commentTitle {
   @apply font-bold
     text-primary;
 }
