@@ -16,7 +16,7 @@ import styles from './styles.module.css'
 
 export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
   // STATE && VARIABLES
-  const { data: realtimeItem } = useDocumentSnapshot('queries', item.id);
+  const { data: realtimeItem } = useDocumentSnapshot(`queries/${item.id}`);
   const { data: realtimeComments } = useCollectionSnapshot(`queries/${item.id}/comments`, { sort: 'asc' });
   const itemData = realtimeItem || item;
   const commentsData = realtimeComments || comments;

@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 // FIREBASE
 import { db } from '@/firebase/client/config';
-import { collection, addDoc, updateDoc, doc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, doc, serverTimestamp, type DocumentData } from 'firebase/firestore';
 
 export const useDB = () => {
   // STATE & HOOKS
@@ -11,12 +11,12 @@ export const useDB = () => {
   const [hasQueryBeenSent, setHasQueryBeenSent] = useState(false);
 
   // FUNCTIONS
-  const addDocument = useCallback(async (collectionString:string, data: object) => {
+  const addDocument = useCallback(async (collectionPath:string, data: DocumentData) => {
     setIsLoading(true);
     setHasQueryBeenSent(false);
     setError(null);
 
-    const docRef = collection(db, collectionString);
+    const docRef = collection(db, collectionPath);
 
     try {
       const response = await addDoc(docRef,{
@@ -38,11 +38,11 @@ export const useDB = () => {
     }
 }, [isLoading, error, hasQueryBeenSent]);
 
-const updateDocument = useCallback(async (collectionString:string, documentId: string,  data: object) => {
+const updateDocument = useCallback(async (documentPath:string,  data: DocumentData) => {
   setIsLoading(true);
   setError(null);
 
-  const docRef = doc(db, `${collectionString}/${documentId}`);
+  const docRef = doc(db, documentPath);
 
   try {
     await updateDoc(docRef,{

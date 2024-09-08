@@ -8,7 +8,7 @@ import { applyDBFiltersClientSide } from '@/utils/client/db';
 // TYPES
 import { IDbFilters } from '@/types/db';
 
-export const useCollectionSnapshot = (collectionString: string, filters: IDbFilters) => {
+export const useCollectionSnapshot = (collectionPath: string, filters: IDbFilters) => {
   //STATE
   const [data, setData] = useState<DocumentData[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,13 +18,13 @@ export const useCollectionSnapshot = (collectionString: string, filters: IDbFilt
     setIsLoading(true);
     setError(null);
 
-    const docsRef = collection(db, collectionString);
+    const docsRef = collection(db, collectionPath);
     const docsWithFilters = applyDBFiltersClientSide(docsRef, filters);
 
     const unsubscribe = 
-    onSnapshot(docsWithFilters, (snapshot: { empty: boolean; docs: FirebaseFirestore.DocumentData[]; }) => {
+    onSnapshot(docsWithFilters, (snapshot) => {
       if(!snapshot.empty) {
-        const docs = snapshot.docs.map((doc: FirebaseFirestore.DocumentData) => ({
+        const docs = snapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
           createdAt: doc.data().createdAt?.toMillis() ?? null,

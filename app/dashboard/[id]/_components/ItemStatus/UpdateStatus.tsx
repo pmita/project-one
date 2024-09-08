@@ -26,7 +26,7 @@ export const UpdateStatus = ({ id, status }: { id: string, status: string }) => 
 
   // EVENTS
   const onSubmit = useCallback(async ({ status }: IStatusForm) => {
-    await updateDocument('queries', id, { status });
+    await updateDocument(`queries/${id}`, { status });
   }, [status, id]);
 
   return (

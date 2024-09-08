@@ -5,7 +5,7 @@ import { db } from '@/firebase/client/config';
 import { doc, onSnapshot, type DocumentData } from 'firebase/firestore';
 
 
-export const useDocumentSnapshot = (collectionString: string, docId: string) => {
+export const useDocumentSnapshot = (documentPath: string) => {
   //STATE
   const [data, setData] = useState<DocumentData| null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,7 @@ export const useDocumentSnapshot = (collectionString: string, docId: string) => 
     setIsLoading(true);
     setError(null);
 
-    const docRef = doc(db, `${collectionString}/${docId}`);
+    const docRef = doc(db, documentPath);
 
     const unsubscribe = onSnapshot(docRef, (doc) => {
       if(doc.exists()) {
@@ -38,7 +38,7 @@ export const useDocumentSnapshot = (collectionString: string, docId: string) => 
     });
 
     return () => unsubscribe();
-  }, [collectionString, docId]);
+  }, [documentPath]);
 
   return { data, isLoading, error };
 }
