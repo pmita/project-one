@@ -25,7 +25,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
   export const DialogPanel = ({ className, children, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
-        `${styles.panel}`,
+        `${styles.dialogPanel}`,
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
   export const DialogHeader = ({ className, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
-       `${styles.header}`,
+       `${styles.dialogHeader}`,
         className
         )}
         {...props}
@@ -49,7 +49,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
   export const DialogTitle = ({ className, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
-       `${styles.title}`,
+       `${styles.dialogTitle}`,
         className
         )}
         {...props}
@@ -60,7 +60,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
   export const DialogDescription = ({ className, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
-       `${styles.description}`,
+       `${styles.dialogDescription}`,
         className
         )}
         {...props}
@@ -71,7 +71,7 @@ export const Dialog = React.forwardRef<HTMLDialogElement, IDialog>(({ className,
   export const DialogFooter = ({ className, ...props }: IDialogPanel) => {
     return (
       <div className={cn(
-       `${styles.footer}`,
+       `${styles.dialogFooter}`,
         className
         )}
         {...props}

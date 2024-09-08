@@ -1,5 +1,3 @@
-// LIBRARIES
-import { VariantProps, cva } from "class-variance-authority";
 // COMPONENTS
 import { statusVariants } from "./statusVariants";
 // UTILS

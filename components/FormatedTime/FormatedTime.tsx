@@ -2,16 +2,11 @@
 import React from 'react';
 // UTILS
 import { cn, formatDate, formatDateFromMillis } from '@/utils/helpers';
+// TYPES
+import { FormatedTimeProps } from './types';
 // STYLES
 import styles from './styles.module.css';
 
-
-type TimeInput = number | string;
-
-type FormatedTimeProps = {
-  time: TimeInput;
-  className?: string;
-};
 
 export const FormatedTime = ({ time, className }: FormatedTimeProps) => {
 

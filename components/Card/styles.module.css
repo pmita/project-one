@@ -1,4 +1,4 @@
-.container {
+.cardContainer {
   @apply rounded-[6px] 
     border 
     bg-neutral 
@@ -6,27 +6,27 @@
     shadow-sm;
 }
 
-.header {
+.cardHeader {
   @apply flex 
     flex-col 
     gap-5 
     p-4;
 }
 
-.title {
+.cardTitle {
   @apply text-sm 
     text-primary 
     font-bold;
 }
 
-.description {
+.cardDescription {
   @apply text-sm 
     text-primary 
     font-normal 
     p-4;
 }
 
-.footer {
+.cardFooter {
   @apply flex 
     items-center 
     p-4;

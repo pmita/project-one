@@ -12,7 +12,7 @@
     outline-[0px];
 }
 
-.panel {
+.dialogPanel {
   @apply absolute 
     w-[450px]
     h-full 
@@ -23,24 +23,24 @@
     top-0;
 }
 
-.header {
+.dialogHeader {
   @apply flex 
     flex-col 
     gap-5;
 }
 
-.title {
+.dialogTitle {
   @apply text-sm 
     text-secondary 
     font-bold;
 }
 
-.description {
+.dialogDescription {
   @apply text-sm 
     text-secondary;
 }
 
-.footer {
+.dialogFooter {
   @apply flex 
   flex-col-reverse 
   sm:flex-row 

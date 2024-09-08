@@ -9,7 +9,7 @@ const Card = ({ className, ...props}: ICard ) => {
   return (
     <div
       className={cn(
-        `${styles.container}`,
+        `${styles.cardContainer}`,
         className
       )}
       {...props}
@@ -21,7 +21,7 @@ const CardHeader = ({ className, ...props}: ICard) => {
   return (
     <header
       className={cn(
-        `${styles.header}`,
+        `${styles.cardHeader}`,
         className
       )}
       {...props}
@@ -33,7 +33,7 @@ const CardTitle = ({ className, ...props}: ICardHeading) => {
   return (
     <h2
       className={cn(
-        `${styles.title}`,
+        `${styles.cardTitle}`,
         className
       )}
       {...props}
@@ -45,7 +45,7 @@ const CardDescription = ({ className, ...props}: ICard) => {
   return (
     <div
       className={cn(
-        `${styles.description}`,
+        `${styles.cardDescription}`,
         className
       )}
       {...props}
@@ -57,7 +57,7 @@ const CardFooter = ({ className, ...props}: ICard) => {
   return (
     <div
       className={cn(
-        `${styles.footer}`,
+        `${styles.cardFooter}`,
         className
       )}
       {...props}
