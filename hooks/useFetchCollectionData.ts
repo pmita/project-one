@@ -6,7 +6,7 @@ import { collection, getDocs, type DocumentData } from 'firebase/firestore';
 // UTILS
 import { applyDBFiltersClientSide } from '@/utils/client/db';
 // TYPES
-import { IDbFilters } from '@/types/db';
+import { IDbFilters, IQueryItem } from '@/types/db';
 
 export const useFetchCollectionData = () => {
   // STATE & HOOKS
@@ -31,7 +31,7 @@ const fetchCollectionData = useCallback(async (collectionPath: string, filters: 
       lastUpdatedAt: doc?.data().lastUpdatedAt ?? null,
     }));
 
-    data = docsData as DocumentData[] | [];
+    data = docsData as DocumentData[] | null;
   }catch(error) {
     setError((error as Error).message);
   }finally {
