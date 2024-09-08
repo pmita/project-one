@@ -8,7 +8,6 @@
 
 .cardHeader {
   @apply flex 
-    flex-col 
     gap-5 
     p-4;
 }
@@ -28,6 +27,5 @@
 
 .cardFooter {
   @apply flex 
-    items-center 
     p-4;
 }
