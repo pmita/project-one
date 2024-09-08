@@ -1,6 +1,5 @@
 .itemContainer { 
-  @apply bg-neutral 
-    flex 
+  @apply flex 
     flex-col 
     justify-center 
     items-stretch;
