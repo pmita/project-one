@@ -13,17 +13,13 @@ import { useAuth } from "@/hooks/useAuth";
 // PACKAGES
 import { useForm } from "react-hook-form";
 // CONFIG
-import { signinFormConfig } from "./config";
+import { signinFormConfig } from "@/config/signin";
 // UTILS
 import { cn } from "@/utils/helpers";
+// TYPES
+import { SignInFormProps } from './types';
 // STYLES
 import styles from "./styles.module.css";
-
-// TYPES
-interface SignInFormProps {
-  email: string;
-  password: string;
-}
 
 export const SignInForm = () => {
   // STATE && VARIABLES

@@ -8,14 +8,10 @@ import { Comments } from "@/components/Comments";
 import { useDocumentSnapshot } from "@/hooks/useDocumentSnapshot";
 import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 // TYPES
-import { ICommentItem, IQueryItem } from "@/types/db";
+import { ICommentItem } from "@/types/db";
+import { RealtimeItemProps } from "./types";
 // STYLES
 import styles from './styles.module.css'
-
-interface RealtimeItemProps {
-  item: IQueryItem;
-  comments: ICommentItem[];
-}
 
 
 export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {

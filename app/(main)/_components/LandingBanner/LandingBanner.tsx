@@ -8,7 +8,7 @@ import { cn } from "@/utils/helpers";
 import styles from './styles.module.css';
 
 
-export const LandingBanner = async () => {
+export async function LandingBanner() {
   return (
     <section className={`${styles.section}`}>
       <div className={`${styles.content}`}>

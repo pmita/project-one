@@ -12,14 +12,9 @@ import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 import { cn } from "@/utils/helpers";
 // TYPES
 import { ICommentItem, IQueryItem } from "@/types/db";
+import { QuickViewDialogProps } from "./types";
 // STYLES
 import styles from './styles.module.css';
-
-type QuickViewDialogProps = {
-    item: IQueryItem
-    isOpen: boolean
-    toggleDialog: (option: boolean) => void
-}
 
 export const QuickViewDialog = ({ item, isOpen, toggleDialog }: QuickViewDialogProps) => {
     // STATE && VARIABLES

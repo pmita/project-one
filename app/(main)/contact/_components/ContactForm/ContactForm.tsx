@@ -1,7 +1,7 @@
 "use client"
 
 // REACT
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 // COMPONENTS
 import { FormField } from "@/components/FormField";
 import { Button, buttonVariants } from "@/components/Button";
@@ -10,14 +10,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 // HOOKS
 import { useDB } from "@/hooks/useDB";
 // CONFIG
-import { contactFormConfig } from "./config";
+import { contactFormConfig } from "@/config/contact";
 // UTILS
 import { cn } from "@/utils/helpers";
 // TYPES
 import { IContactForm } from "./types";
+import { QUERY_STATUS } from "@/types/db";
 // STYLES
 import styles from "./styles.module.css";
-import { QUERY_STATUS } from "@/types/db";
 
 
 export const ContactForm = () => {

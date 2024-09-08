@@ -13,7 +13,6 @@ import styles from './styles.module.css';
 
 const baseOptions = ['INITIAL', 'PROGRESSED', 'COMPLETED'];
 
-
 export const FilterOptions = ({ option }: { option: string }) => {
   // STATE & VARIABLES
   const [currentOption, setCurrentOption] = useState(option || 'ALL');
