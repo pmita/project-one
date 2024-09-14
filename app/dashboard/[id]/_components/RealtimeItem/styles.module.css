@@ -18,7 +18,7 @@
 }
 
 .highlightedText {
-  @apply text-primary
+  @apply text-gray-500
     font-bold;
 }
 
