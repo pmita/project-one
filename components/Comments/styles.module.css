@@ -12,7 +12,8 @@
 
 .commentFooter {
   @apply flex-row
-    justify-between;
+    justify-between
+    items-center;
 }
 
 .formContainer {
