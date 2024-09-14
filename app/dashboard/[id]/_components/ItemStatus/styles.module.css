@@ -1,13 +1,15 @@
 .formContainer {
   @apply flex 
+    flex-wrap
     flex-row 
     justify-center 
     items-center 
-    gap-2;
+    gap-2
+    p-2;
 }
 
 .selectContainer {
-  @apply flex-1 
+  @apply flex-[1_1_20rem]
     w-full 
     border-solid 
     border-[0.3rem] 
