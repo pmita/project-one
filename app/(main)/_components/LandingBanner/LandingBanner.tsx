@@ -28,15 +28,6 @@ export async function LandingBanner() {
             >
               Get in Touch
             </Link>
-            <Link
-              href="/services"
-              className={cn(buttonVariants({
-                variant: "secondaryOutlined",
-                size: "lg",
-              }))}
-            >
-              What do we offer
-            </Link>
         </div>
       </div>
     </section>
