@@ -1,0 +1,37 @@
+.feature {
+  @apply flex
+    flex-col
+    items-center
+    justify-center
+    gap-4
+    p-4
+    lg:p-6
+    text-center
+    border-solid
+    border-[3px]
+    rounded-[8px]
+    border-primary
+}
+
+.feature:first-child {
+  @apply col-span-1
+  lg:row-span-2;
+}
+
+.feature:last-child {
+  @apply col-span-1
+  lg:col-span-2;
+}
+
+.title {
+  @apply text-xl
+    font-poppins
+    font-bold
+    text-primary;
+}
+
+.description {
+  @apply text-base
+    text-justify
+    font-roboto
+}
