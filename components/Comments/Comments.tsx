@@ -8,6 +8,7 @@ import { ICommentItem } from "@/types/db";
 import { CommentsProps } from "./types";
 // STYLES
 import styles from "./styles.module.css";
+import { useMemo } from "react";
 
 export const Comments = ({
   id,
@@ -17,18 +18,23 @@ export const Comments = ({
 }: CommentsProps) => {
   if (!comments) return <h1 className={`${styles.commentfallback}`}>No comments yet</h1>;
 
+  // FUNCTIONS
+  const memoizedComments = useMemo(() => (
+    comments.map((comment: ICommentItem) => (
+      <Card key={comment.id}>
+        <CardDescription>{comment.content}</CardDescription>
+        <CardFooter className={`${styles.commentFooter}`}>
+          <Status status={comment.status} />
+          <FormatedTime time={comment.createdAt} />
+        </CardFooter>
+      </Card>
+    ))
+  ), [comments, status, id]);
+
   return (
     <>
       <h1 className={`${styles.commentTitle}`}>Comments</h1>
-      {comments.map((comment: ICommentItem) => (
-        <Card key={comment.id}>
-          <CardDescription>{comment.content}</CardDescription>
-          <CardFooter className={`${styles.commentFooter}`}>
-            <Status status={comment.status} />
-            <FormatedTime time={comment.createdAt} />
-          </CardFooter>
-        </Card>
-      ))}
+      {memoizedComments}
 
       {canAddComments && <AddComment id={id} currentStatus={status} />}
     </>

@@ -3,7 +3,7 @@
 // NEXT
 import { useSearchParams } from "next/navigation";
 // REACT
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 // COMPONENTS
 import { ItemCard } from "../ItemCard";
 import { Button, buttonVariants } from "@/components/Button";
@@ -30,6 +30,7 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
 
   if (!currentItems || !currentItems.length) return null;
 
+  // USE EFFECTS
   useEffect(() => {
     setCurrentItems(items)
     setHasMore(true)
@@ -59,13 +60,18 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
       setHasMore(false);
     }
   }, [currentItems]);
+
+  // FUNCTIONS
+  const memoizedItems = useMemo(() => (
+    currentItems && currentItems.map((item:IQueryItem) => (
+      <ItemCard key={item.id} item={item as IQueryItem | null} />
+    ))
+  ), [currentItems]);
   
   return (
     <>
       <div className={`${styles.gridContainer}`}>
-        {currentItems && currentItems.map((item:IQueryItem) => (
-          <ItemCard key={item.id} item={item as IQueryItem | null} />
-        ))}
+        {memoizedItems}
       </div>
 
       <section className={`${styles.loadMore}`}>
