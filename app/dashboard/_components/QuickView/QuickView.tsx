@@ -20,9 +20,7 @@ export const QuickView = ({ item }: { item: IQueryItem }) => {
 
     return (
         <>
-            {isOpen && (
-                <QuickViewDialog item={item} isOpen={isOpen} toggleDialog={toggleDialog} />
-            )}
+            {isOpen ? <QuickViewDialog item={item} isOpen={isOpen} toggleDialog={toggleDialog} /> : null}
             <Button 
                 className={cn(buttonVariants({ variant: "primaryOutlined", size: "sm" }))}
                 onClick={() => toggleDialog(true)}

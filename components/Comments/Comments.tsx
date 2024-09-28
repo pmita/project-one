@@ -36,7 +36,7 @@ export const Comments = ({
       <h1 className={`${styles.commentTitle}`}>Comments</h1>
       {memoizedComments}
 
-      {canAddComments && <AddComment id={id} currentStatus={status} />}
+      {canAddComments ? <AddComment id={id} currentStatus={status} /> : null}
     </>
   );
 }

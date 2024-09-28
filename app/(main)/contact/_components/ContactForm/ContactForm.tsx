@@ -69,7 +69,7 @@ export const ContactForm = () => {
         {isLoading ? 'Loading...' : 'Submit'}
       </Button>
 
-      {hasQueryBeenSent && <p className={`${styles.promptText}`}>Query has been sent!</p>}
+      {hasQueryBeenSent ? <p className={`${styles.promptText}`}>Query has been sent!</p> : null}
     </form>
   )
 }
