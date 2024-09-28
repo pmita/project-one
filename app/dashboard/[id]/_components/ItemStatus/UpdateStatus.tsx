@@ -24,6 +24,8 @@ export const UpdateStatus = ({ id, status }: { id: string, status: string }) => 
     }
   });
 
+  console.log(error, 'errors');
+
   // EVENTS
   const onSubmit = useCallback(async ({ status }: IStatusForm) => {
     await updateDocument(`queries/${id}`, { status });
@@ -40,8 +42,8 @@ export const UpdateStatus = ({ id, status }: { id: string, status: string }) => 
         <option value={QUERY_STATUS.COMPLETED}>{QUERY_STATUS.COMPLETED}</option>
       </select>
 
-      {errors && (
-        <span className={`${styles.errorText}`}>{errors?.status?.message}</span>
+      {errors?.status?.message && (
+        <span className={`${styles.errorText}`}>{errors.status.message}</span>
       )}
 
       {error && (
@@ -49,7 +51,7 @@ export const UpdateStatus = ({ id, status }: { id: string, status: string }) => 
       )}
 
       <Button 
-        className={cn(buttonVariants({ variant: 'primary', size: 'default' }), "flex-1")}
+        className={cn(buttonVariants({ variant: 'primary', size: 'default' }), "flex-[1_1_20rem]")}
         type="submit"
         disabled={isLoading}
       >

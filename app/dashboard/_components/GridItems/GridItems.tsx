@@ -78,7 +78,7 @@ export const GridItems = ({ items }: { items: IQueryItem[] | null}) => {
               >
                   {isLoading ? 'Loading...' : 'Load More'}
               </Button>)
-          : <p className={`${styles.styledText}`}>No more items to load</p>
+          : <p>No more items to load</p>
         }
       </section>    
     </>

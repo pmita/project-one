@@ -15,8 +15,3 @@
     pt-5;
 }
 
-.styledText { 
-  @apply text-center 
-    text-neutral;
-}
-

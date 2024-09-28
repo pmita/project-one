@@ -11,7 +11,7 @@ export const ItemInfo = ({
 
   return (
     <Card className={`${styles.container}`}>
-      <CardDescription>
+      <CardDescription className={`${styles.description}`}>
         <h1>Name: {item.fullName}</h1>
         <h1>Email: {item.email}</h1>
         <h1>Mobile: {item.mobile}</h1>

@@ -12,9 +12,14 @@
 .statusDetails {
   @apply flex 
     flex-row 
-    justify-center 
+    justify-end
     items-center 
     gap-4;
+}
+
+.highlightedText {
+  @apply text-gray-500
+    font-bold;
 }
 
 .commentsContainer {

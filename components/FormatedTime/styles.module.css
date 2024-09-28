@@ -1,4 +1,5 @@
 .styledText {
   @apply text-xs 
-  text-primary;
+  text-primary
+  text-gray-500;
 }

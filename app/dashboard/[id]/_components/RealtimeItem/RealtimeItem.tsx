@@ -25,7 +25,7 @@ export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
     <>
         <div className={`${styles.statusContainer}`}>
           <div className={`${styles.statusDetails}`}>
-            <span>Status:</span>
+            <span className={`${styles.highlightedText}`}>Current Status:</span>
             <Status status={itemData.status} />
           </div>
           <UpdateStatus id={itemData.id} status={itemData.status} />
