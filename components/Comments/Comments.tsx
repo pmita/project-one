@@ -1,10 +1,14 @@
+// REACT
+import { useMemo } from "react";
+// COMPONENTS
 import { Card, CardDescription, CardFooter } from "@/components/ui/Card";
 import { ItemStatus } from "@/components/Item";
 import { FormatedTime } from "@/components/FormatedTime";
 import { AddComment } from "./components/AddComment";
+// TYPES
 import { ICommentItem } from "@/types/db";
 import { CommentsProps } from "./types";
-import { useMemo } from "react";
+// STYLES
 import styles from "./styles.module.css";
 
 export const Comments = ({
@@ -12,8 +16,7 @@ export const Comments = ({
   status,
   comments,
   canAddComments = false,
-  onCommentAdded
-}: CommentsProps & { onCommentAdded: () => void }) => {
+}: CommentsProps) => {
   if (!comments?.length) return <h1 className={`${styles.commentfallback}`}>No comments yet</h1>;
 
   const memoizedComments = useMemo(() => (
@@ -29,7 +32,7 @@ export const Comments = ({
   ), [comments, status]);
 
   const memoizedAddComment = useMemo(() => (
-    canAddComments && <AddComment id={id} currentStatus={status} onCommentAdded={onCommentAdded} />
+    canAddComments && <AddComment id={id} currentStatus={status} />
   ),  [id, status]);
 
   return (

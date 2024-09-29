@@ -1,5 +1,7 @@
 "use client"
 
+// REACT
+import { useMemo } from 'react';
 // COMPONENTS
 import { ItemStatus } from "@/components/Item";
 import { UpdateStatusForm } from "../../Forms/UpdateStatusForm";
@@ -10,26 +12,25 @@ import { useCollectionSnapshot } from "@/hooks/useCollectionSnapshot";
 // TYPES
 import { ICommentItem } from "@/types/db";
 import { RealtimeItemProps } from "./types";
-// REACT
-import { useState, useEffect } from 'react';
 // STYLES
 import styles from './styles.module.css';
 
 
 export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
-  // STATE && VARIABLES
-  const [commentAdded, setCommentAdded] = useState(false);
   const { data: realtimeItem } = useDocumentSnapshot(`queries/${item.id}`);
   const { data: realtimeComments } = useCollectionSnapshot(`queries/${item.id}/comments`, { sort: 'asc' });
   const itemData = realtimeItem || item;
   const commentsData = realtimeComments || comments;
 
-  // USE EFFECTS
-  useEffect(() => {
-    if (commentAdded) {
-      setCommentAdded(false);
-    }
-  }, [commentAdded, itemData.status]);
+  // FUNCTIONS
+  const memoizedComments = useMemo(() => (
+    <Comments 
+      id={item.id} 
+      status={itemData.status} 
+      comments={commentsData as ICommentItem[]} 
+      canAddComments 
+    />
+  ), [itemData, commentsData]);
 
   return (
     <>
@@ -41,13 +42,7 @@ export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
         <UpdateStatusForm id={itemData.id} status={itemData.status} />
       </div>
       <div className={`${styles.commentsContainer}`}>
-        <Comments 
-          id={item.id} 
-          status={itemData.status} 
-          comments={commentsData as ICommentItem[]} 
-          canAddComments 
-          onCommentAdded={() => setCommentAdded(true)}
-        />
+        {memoizedComments}
       </div>
     </>
   );

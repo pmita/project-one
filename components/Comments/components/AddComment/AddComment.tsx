@@ -22,8 +22,7 @@ import styles from "./styles.module.css";
 export const AddComment = ({
   id,
   currentStatus,
-  onCommentAdded
-}: { id: string, currentStatus: QUERY_STATUS, onCommentAdded: () => void }) => {
+}: { id: string, currentStatus: QUERY_STATUS }) => {
   const { addDocument, isLoading, error } = useDB();
   const { register, reset, handleSubmit, formState: { errors } } = useForm<IAddCommentForm>({
     defaultValues: {
@@ -39,14 +38,12 @@ export const AddComment = ({
 
     try {
       await addDocument(`queries/${id}/comments`, commentToAdd);
-      
-      onCommentAdded();
 
       reset();
     } catch (err) {
       console.error('Failed to add comment:', err);
     }
-  }, [addDocument, id, currentStatus, onCommentAdded, reset]);
+  }, [addDocument, id, currentStatus, reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={`${styles.formContainer}`}>
