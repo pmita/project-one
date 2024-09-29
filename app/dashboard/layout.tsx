@@ -1,4 +1,5 @@
-// 'use client'
+'use client'
+
 // COMPONENTS
 import { SignInForm } from "@/components/Forms";
 import { AdminNavbar } from "@/components/Navigation";
@@ -11,7 +12,7 @@ const FallbackComponent = (
   </section>
 );
 
-export default async function DashboardLayout({
+function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -26,4 +27,4 @@ export default async function DashboardLayout({
   );
 }
 
-// export default withAuthCheck(DashboardLayout, FallbackComponent);
+export default withAuthCheck(DashboardLayout, FallbackComponent);

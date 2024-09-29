@@ -31,8 +31,6 @@ export const RealtimeItem = ({ item, comments }: RealtimeItemProps) => {
     }
   }, [commentAdded, itemData.status]);
 
-  console.log('itemData just changed', itemData.status);
-
   return (
     <>
       <div className={`${styles.statusContainer}`}>
