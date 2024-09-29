@@ -1,8 +1,8 @@
 // DATA
 import { getCollectionData, getDocumentData } from "@/data/db";
 // COMPONENTS
-import { ItemInfo } from "./_components/ItemInfo";
-import { RealtimeItem } from "./_components/RealtimeItem/RealtimeItem";
+import { ItemInfo } from "@/components/Item";
+import { RealtimeItem } from "@/components/Item";
 // TYPES
 import { ICommentItem, IQueryItem } from "@/types/db";
 

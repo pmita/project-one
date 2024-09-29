@@ -1,0 +1,11 @@
+.formContainer {
+  @apply flex 
+    flex-col 
+    justify-start 
+    items-start 
+    gap-4;
+}
+
+.errorText {
+  @apply text-danger;
+}

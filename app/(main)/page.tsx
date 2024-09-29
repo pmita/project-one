@@ -1,6 +1,5 @@
 // COMPONENTS
-import { LandingBanner } from "./_components/LandingBanner";
-import { Features } from "./_components/Features";
+import { LandingBanner, Features } from "@/components/LandingPage";
 
 export default function HomePage() {
   return (

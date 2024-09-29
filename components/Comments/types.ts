@@ -7,7 +7,3 @@ export type CommentsProps = {
   comments: ICommentItem[];
   canAddComments?: boolean
 }
-
-export interface IAddCommentForm {
-  comment: string;
-}

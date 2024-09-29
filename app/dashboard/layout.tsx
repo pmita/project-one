@@ -1,6 +1,7 @@
+// 'use client'
 // COMPONENTS
-import { SignInForm } from "../signin/_components/SignInForm";
-import { AdminNavbar } from "./_components/AdminNavbar";
+import { SignInForm } from "@/components/Forms";
+import { AdminNavbar } from "@/components/Navigation";
 import { withAuthCheck } from "@/components/withAuthCheck";
 
 const FallbackComponent = (
@@ -10,7 +11,7 @@ const FallbackComponent = (
   </section>
 );
 
-async function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -25,4 +26,4 @@ async function DashboardLayout({
   );
 }
 
-export default withAuthCheck(DashboardLayout, FallbackComponent);
+// export default withAuthCheck(DashboardLayout, FallbackComponent);
