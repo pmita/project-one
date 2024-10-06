@@ -1,11 +1,11 @@
 // NEXT
 import type { Metadata } from "next";
 // CONTEXT
-import { AuthContextProvider } from "@/context//AuthContext";
+import { AuthContextProvider } from "@/src/context/AuthContext";
 // CONFIG
-import { roboto, poppins } from "@/config/fonts";
+import { roboto, poppins } from "@/src/config/fonts";
 // UTILS
-import { cn } from "@/utils/helpers";
+import { cn } from "@/src/utils/helpers";
 // STYLES
 import "./globals.css";
 

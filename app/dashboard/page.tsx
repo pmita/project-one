@@ -1,10 +1,10 @@
 // DATA
-import { getCollectionData } from "@/data/db";
+import { getCollectionData } from "@/src/data/db";
 // COMPONENTS
-import { FilterOptions } from "@/components/Filters";
-import { ItemsInGrid } from "@/components/Items";
+import { FilterOptions } from "@/src/components/Filters";
+import { ItemsInGrid } from "@/src/components/Items";
 // TYPES 
-import { IQueryItem } from "@/types/db";
+import { IQueryItem } from "@/src/types/db";
 
 type SearchParams = {
   [key: string]: string | undefined;

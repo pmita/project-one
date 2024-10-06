@@ -1,5 +1,5 @@
 // COMPONENTS
-import { Skeleton } from "@/components/ui/Skeleton";
+import { Skeleton } from "@/src/components/ui/Skeleton";
 
 export default async function ItemPageLoading() {
   return (

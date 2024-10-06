@@ -1,9 +1,9 @@
 'use client'
 
 // COMPONENTS
-import { SignInForm } from "@/components/Forms";
-import { AdminNavbar } from "@/components/Navigation";
-import { withAuthCheck } from "@/components/withAuthCheck";
+import { SignInForm } from "@/src/components/Forms";
+import { AdminNavbar } from "@/src/components/Navigation";
+import { withAuthCheck } from "@/src/components/withAuthCheck";
 
 const FallbackComponent = (
   <section className="container min-h-[100dvh] grid place-content-center text-center gap-5">

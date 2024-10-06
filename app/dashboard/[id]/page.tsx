@@ -1,10 +1,10 @@
 // DATA
-import { getCollectionData, getDocumentData } from "@/data/db";
+import { getCollectionData, getDocumentData } from "@/src/data/db";
 // COMPONENTS
-import { ItemInfo } from "@/components/Item";
-import { RealtimeItem } from "@/components/Item";
+import { ItemInfo } from "@/src/components/Item";
+import { RealtimeItem } from "@/src/components/Item";
 // TYPES
-import { ICommentItem, IQueryItem } from "@/types/db";
+import { ICommentItem, IQueryItem } from "@/src/types/db";
 
 interface DashboardItemPageProps {
   params: {
